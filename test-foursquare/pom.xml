@@ -11,6 +11,14 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
+	<repositories>
+        <repository>
+          <id>foursquareapijava</id>
+          <name>Foursquare V2 API for Java Repository</name>
+          <url>http://clojars.org/repo</url>
+        </repository>
+      </repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.json</groupId>
