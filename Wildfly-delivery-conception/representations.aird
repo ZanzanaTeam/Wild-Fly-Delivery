@@ -539,7 +539,7 @@
           </edges>
         </data>
       </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_qOSUEHBdEeWOZIUIG_9YKw" name="Artifact1" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_qOSUEHBdEeWOZIUIG_9YKw" name="Dig UC - Générale" width="12" height="10">
         <target xmi:type="uml:Artifact" href="model.uml#_qN-yEHBdEeWOZIUIG_9YKw"/>
         <semanticElements xmi:type="uml:Artifact" href="model.uml#_qN-yEHBdEeWOZIUIG_9YKw"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>

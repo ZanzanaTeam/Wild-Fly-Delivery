@@ -30,7 +30,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_hYuooHBdEeWOZIUIG_9YKw" name=""/>
   <packagedElement xmi:type="uml:Component" xmi:id="_l8ZBEHBdEeWOZIUIG_9YKw" name="use case generale Subject"/>
-  <packagedElement xmi:type="uml:Artifact" xmi:id="_qN-yEHBdEeWOZIUIG_9YKw" name="Artifact1" useCase="_xJS-aXBdEeWOZIUIG_9YKw _xJS-fXBdEeWOZIUIG_9YKw _xJcvZHBdEeWOZIUIG_9YKw _xJcvcHBdEeWOZIUIG_9YKw _xJ5bU3BdEeWOZIUIG_9YKw _xJvqW3BdEeWOZIUIG_9YKw _xJcve3BdEeWOZIUIG_9YKw _xJmganBdEeWOZIUIG_9YKw _xJcvh3BdEeWOZIUIG_9YKw _xJcvk3BdEeWOZIUIG_9YKw _xJmginBdEeWOZIUIG_9YKw _xJvqcHBdEeWOZIUIG_9YKw _xJvqh3BdEeWOZIUIG_9YKw _xJ5bfXBdEeWOZIUIG_9YKw _xJ5bcXBdEeWOZIUIG_9YKw _lcPr8HBeEeWOZIUIG_9YKw">
+  <packagedElement xmi:type="uml:Artifact" xmi:id="_qN-yEHBdEeWOZIUIG_9YKw" name="Dig UC - Générale" useCase="_xJS-aXBdEeWOZIUIG_9YKw _xJS-fXBdEeWOZIUIG_9YKw _xJcvZHBdEeWOZIUIG_9YKw _xJcvcHBdEeWOZIUIG_9YKw _xJ5bU3BdEeWOZIUIG_9YKw _xJvqW3BdEeWOZIUIG_9YKw _xJcve3BdEeWOZIUIG_9YKw _xJmganBdEeWOZIUIG_9YKw _xJcvh3BdEeWOZIUIG_9YKw _xJcvk3BdEeWOZIUIG_9YKw _xJmginBdEeWOZIUIG_9YKw _xJvqcHBdEeWOZIUIG_9YKw _xJvqh3BdEeWOZIUIG_9YKw _xJ5bfXBdEeWOZIUIG_9YKw _xJ5bcXBdEeWOZIUIG_9YKw _lcPr8HBeEeWOZIUIG_9YKw">
     <ownedUseCase xmi:id="_xJS-aXBdEeWOZIUIG_9YKw" name="Spécifier la zone ou l'emplacement" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
     <ownedUseCase xmi:id="_xJS-fXBdEeWOZIUIG_9YKw" name="s'authentifier" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
     <ownedUseCase xmi:id="_xJcvZHBdEeWOZIUIG_9YKw" name="Noter restaurant" subject="_qN-yEHBdEeWOZIUIG_9YKw">
