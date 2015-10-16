@@ -1,4 +1,7 @@
+package services.implementation;
 
+
+import javax.ejb.Stateless;
 
 import fi.foyt.foursquare.api.FoursquareApi;
 import fi.foyt.foursquare.api.FoursquareApiException;
@@ -7,22 +10,8 @@ import fi.foyt.foursquare.api.entities.Category;
 import fi.foyt.foursquare.api.entities.CompactVenue;
 import fi.foyt.foursquare.api.entities.VenuesSearchResult;
 
-/**
- * Basic search example
- * @TODO - more examples please :)
- * @author rmangi
- *
- */
+@Stateless
 public class BasicExample {
-
-	  public static void main(String[] args) {
-	    String ll = args.length > 0 ? args[0] : "44.3,37.2";
-	    try {
-	      (new BasicExample()).searchVenues(ll);
-	    } catch (FoursquareApiException e) {
-	      // TODO: Error handling
-	    }
-	  }
 
 	  public void searchVenues(String ll) throws FoursquareApiException {
 	    // First we need a initialize FoursquareApi. 
