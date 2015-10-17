@@ -9,16 +9,17 @@ import javax.persistence.Id;
 
 @Entity
 public class EntityTest implements Serializable {
-	
-	private Integer id ;
-private static final long serialVersionUID = 1L;
-	
+
+	private Integer id;
+	private static final long serialVersionUID = 1L;
+
 	public EntityTest() {
 		super();
-		
+
 	}
-	@Id  
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}

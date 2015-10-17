@@ -9,19 +9,17 @@ import javax.persistence.Id;
 
 @Entity
 public class Note implements Serializable {
-	
-	private Integer id ;
-private static final long serialVersionUID = 1L;
-	
+
+	private Integer id;
+	private static final long serialVersionUID = 1L;
+
 	public Note() {
 		super();
-		
+
 	}
-	
 
-	@Id  
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
@@ -29,10 +27,10 @@ private static final long serialVersionUID = 1L;
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	@Override
 	public String toString() {
 		return "Note [id=" + id + "]";
 	}
-
 
 }
