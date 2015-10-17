@@ -1,0 +1,7 @@
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <module name="fi.foyt" />
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
