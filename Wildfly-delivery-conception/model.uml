@@ -30,9 +30,8 @@
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_hYuooHBdEeWOZIUIG_9YKw" name=""/>
   <packagedElement xmi:type="uml:Component" xmi:id="_l8ZBEHBdEeWOZIUIG_9YKw" name="use case generale Subject"/>
-  <packagedElement xmi:type="uml:Artifact" xmi:id="_qN-yEHBdEeWOZIUIG_9YKw" name="Dig UC - Générale" useCase="_xJS-aXBdEeWOZIUIG_9YKw _xJS-fXBdEeWOZIUIG_9YKw _xJcvZHBdEeWOZIUIG_9YKw _xJcvcHBdEeWOZIUIG_9YKw _xJ5bU3BdEeWOZIUIG_9YKw _xJvqW3BdEeWOZIUIG_9YKw _xJcve3BdEeWOZIUIG_9YKw _xJmganBdEeWOZIUIG_9YKw _xJcvh3BdEeWOZIUIG_9YKw _xJcvk3BdEeWOZIUIG_9YKw _xJmginBdEeWOZIUIG_9YKw _xJvqcHBdEeWOZIUIG_9YKw _xJvqh3BdEeWOZIUIG_9YKw _xJ5bfXBdEeWOZIUIG_9YKw _xJ5bcXBdEeWOZIUIG_9YKw _lcPr8HBeEeWOZIUIG_9YKw">
-    <ownedUseCase xmi:id="_xJS-aXBdEeWOZIUIG_9YKw" name="Spécifier la zone ou l'emplacement" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
-    <ownedUseCase xmi:id="_xJS-fXBdEeWOZIUIG_9YKw" name="s'authentifier" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
+  <packagedElement xmi:type="uml:Artifact" xmi:id="_qN-yEHBdEeWOZIUIG_9YKw" name="Artifact1" useCase="_xJS-aXBdEeWOZIUIG_9YKw _xJcvZHBdEeWOZIUIG_9YKw _xJcvcHBdEeWOZIUIG_9YKw _xJ5bU3BdEeWOZIUIG_9YKw _xJvqW3BdEeWOZIUIG_9YKw _xJcve3BdEeWOZIUIG_9YKw _xJmganBdEeWOZIUIG_9YKw _xJcvh3BdEeWOZIUIG_9YKw _xJcvk3BdEeWOZIUIG_9YKw _xJmginBdEeWOZIUIG_9YKw _xJvqcHBdEeWOZIUIG_9YKw _xJvqh3BdEeWOZIUIG_9YKw _xJ5bfXBdEeWOZIUIG_9YKw _xJ5bcXBdEeWOZIUIG_9YKw _lcPr8HBeEeWOZIUIG_9YKw _lgitIHEOEeW_xMYDHJoL1w">
+    <ownedUseCase xmi:id="_xJS-aXBdEeWOZIUIG_9YKw" name="Spécifier la zone de recherche" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
     <ownedUseCase xmi:id="_xJcvZHBdEeWOZIUIG_9YKw" name="Noter restaurant" subject="_qN-yEHBdEeWOZIUIG_9YKw">
       <extend xmi:id="_xJcvZXBdEeWOZIUIG_9YKw" extendedCase="_xJ5bU3BdEeWOZIUIG_9YKw"/>
     </ownedUseCase>
@@ -45,7 +44,9 @@
     </ownedUseCase>
     <ownedUseCase xmi:id="_xJcve3BdEeWOZIUIG_9YKw" name="Ajouter" subject="_qN-yEHBdEeWOZIUIG_9YKw">
       <extend xmi:id="_xJcvfHBdEeWOZIUIG_9YKw" extendedCase="_xJcvcHBdEeWOZIUIG_9YKw"/>
+      <extend xmi:id="_zcpmMHEPEeW_xMYDHJoL1w" extendedCase="_xJvqW3BdEeWOZIUIG_9YKw"/>
       <include xmi:id="_p0zAkHBeEeWOZIUIG_9YKw" addition="_lcPr8HBeEeWOZIUIG_9YKw"/>
+      <include xmi:id="_qjMHoHEOEeW_xMYDHJoL1w" addition="_lgitIHEOEeW_xMYDHJoL1w"/>
     </ownedUseCase>
     <ownedUseCase xmi:id="_xJmganBdEeWOZIUIG_9YKw" name="Spécifier chaque commande" subject="_qN-yEHBdEeWOZIUIG_9YKw">
       <extend xmi:id="_xJmga3BdEeWOZIUIG_9YKw" extendedCase="_xJcve3BdEeWOZIUIG_9YKw"/>
@@ -53,28 +54,57 @@
     <ownedUseCase xmi:id="_xJcvh3BdEeWOZIUIG_9YKw" name="Noter commande" subject="_qN-yEHBdEeWOZIUIG_9YKw">
       <extend xmi:id="_xJcviHBdEeWOZIUIG_9YKw" extendedCase="_xJcvcHBdEeWOZIUIG_9YKw"/>
     </ownedUseCase>
-    <ownedUseCase xmi:id="_xJcvk3BdEeWOZIUIG_9YKw" name="valider/livrer une commende" subject="_qN-yEHBdEeWOZIUIG_9YKw">
-      <include xmi:id="_xJcvlHBdEeWOZIUIG_9YKw" addition="_xJS-fXBdEeWOZIUIG_9YKw"/>
+    <ownedUseCase xmi:id="_xJcvk3BdEeWOZIUIG_9YKw" name="Livrer une commende" subject="_qN-yEHBdEeWOZIUIG_9YKw">
+      <include xmi:id="_QfA-oHEPEeW_xMYDHJoL1w" addition="_JJqhsHEPEeW_xMYDHJoL1w"/>
     </ownedUseCase>
     <ownedUseCase xmi:id="_xJmginBdEeWOZIUIG_9YKw" name="Annuler" subject="_qN-yEHBdEeWOZIUIG_9YKw">
       <extend xmi:id="_xJvqUHBdEeWOZIUIG_9YKw" extendedCase="_xJcvcHBdEeWOZIUIG_9YKw"/>
     </ownedUseCase>
-    <ownedUseCase xmi:id="_xJvqcHBdEeWOZIUIG_9YKw" name="Gerer les menus / prix" subject="_qN-yEHBdEeWOZIUIG_9YKw">
-      <include xmi:id="_xJvqcXBdEeWOZIUIG_9YKw" addition="_xJS-fXBdEeWOZIUIG_9YKw"/>
-    </ownedUseCase>
-    <ownedUseCase xmi:id="_xJvqh3BdEeWOZIUIG_9YKw" name="Consulter son profil" subject="_qN-yEHBdEeWOZIUIG_9YKw">
-      <include xmi:id="_xJvqiHBdEeWOZIUIG_9YKw" addition="_xJS-fXBdEeWOZIUIG_9YKw"/>
-    </ownedUseCase>
-    <ownedUseCase xmi:id="_xJ5bfXBdEeWOZIUIG_9YKw" name="Spécifier liste des zone pour livraision" subject="_qN-yEHBdEeWOZIUIG_9YKw">
-      <include xmi:id="_xJ5bfnBdEeWOZIUIG_9YKw" addition="_xJS-fXBdEeWOZIUIG_9YKw"/>
-    </ownedUseCase>
-    <ownedUseCase xmi:id="_xJ5bcXBdEeWOZIUIG_9YKw" name="Spécifier les types des livraisons" subject="_qN-yEHBdEeWOZIUIG_9YKw">
-      <include xmi:id="_xJ5bcnBdEeWOZIUIG_9YKw" addition="_xJS-fXBdEeWOZIUIG_9YKw"/>
-    </ownedUseCase>
+    <ownedUseCase xmi:id="_xJvqcHBdEeWOZIUIG_9YKw" name="Gerer les menus" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
+    <ownedUseCase xmi:id="_xJvqh3BdEeWOZIUIG_9YKw" name="Consulter le compte du restaurant" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
+    <ownedUseCase xmi:id="_xJ5bfXBdEeWOZIUIG_9YKw" name="Spécifier liste des zone pour livraision" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
+    <ownedUseCase xmi:id="_xJ5bcXBdEeWOZIUIG_9YKw" name="Spécifier les types des livraisons" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
     <ownedUseCase xmi:id="_lcPr8HBeEeWOZIUIG_9YKw" name="Spécifier lieu de livraison" subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
+    <ownedUseCase xmi:id="_lgitIHEOEeW_xMYDHJoL1w" name="Choisir un rest " subject="_qN-yEHBdEeWOZIUIG_9YKw"/>
+    <ownedUseCase xmi:id="_JJqhsHEPEeW_xMYDHJoL1w" name="valider une commende"/>
+    <nestedArtifact xmi:id="_MgeFcHEPEeW_xMYDHJoL1w" name="Artifact1" useCase="_MgeFcXEPEeW_xMYDHJoL1w _MgeFcnEPEeW_xMYDHJoL1w _MgeFdHEPEeW_xMYDHJoL1w _MgeFdXEPEeW_xMYDHJoL1w _MgeFd3EPEeW_xMYDHJoL1w _MgeFeXEPEeW_xMYDHJoL1w _MgeFfXEPEeW_xMYDHJoL1w _MgeFf3EPEeW_xMYDHJoL1w _MgeFgXEPEeW_xMYDHJoL1w _MgeFgnEPEeW_xMYDHJoL1w _MgeFhHEPEeW_xMYDHJoL1w _MgeFhXEPEeW_xMYDHJoL1w _MgeFhnEPEeW_xMYDHJoL1w _MgeFh3EPEeW_xMYDHJoL1w _MgeFiHEPEeW_xMYDHJoL1w _MgeFiXEPEeW_xMYDHJoL1w">
+      <ownedUseCase xmi:id="_MgeFcXEPEeW_xMYDHJoL1w" name="Spécifier la zone ou l'emplacement" subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFcnEPEeW_xMYDHJoL1w" name="Noter restaurant" subject="_MgeFcHEPEeW_xMYDHJoL1w">
+        <extend xmi:id="_MgeFc3EPEeW_xMYDHJoL1w" extendedCase="_MgeFdXEPEeW_xMYDHJoL1w"/>
+      </ownedUseCase>
+      <ownedUseCase xmi:id="_MgeFdHEPEeW_xMYDHJoL1w" name="Gerer les commandes" subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFdXEPEeW_xMYDHJoL1w" name="Chercher un restaurant" subject="_MgeFcHEPEeW_xMYDHJoL1w">
+        <include xmi:id="_MgeFdnEPEeW_xMYDHJoL1w" addition="_MgeFcXEPEeW_xMYDHJoL1w"/>
+      </ownedUseCase>
+      <ownedUseCase xmi:id="_MgeFd3EPEeW_xMYDHJoL1w" name="Consulter les menus" subject="_MgeFcHEPEeW_xMYDHJoL1w">
+        <extend xmi:id="_MgeFeHEPEeW_xMYDHJoL1w" extendedCase="_MgeFdXEPEeW_xMYDHJoL1w"/>
+      </ownedUseCase>
+      <ownedUseCase xmi:id="_MgeFeXEPEeW_xMYDHJoL1w" name="Ajouter" subject="_MgeFcHEPEeW_xMYDHJoL1w">
+        <extend xmi:id="_MgeFenEPEeW_xMYDHJoL1w" extendedCase="_MgeFdHEPEeW_xMYDHJoL1w"/>
+        <include xmi:id="_MgeFe3EPEeW_xMYDHJoL1w" addition="_MgeFiHEPEeW_xMYDHJoL1w"/>
+        <include xmi:id="_MgeFfHEPEeW_xMYDHJoL1w" addition="_MgeFiXEPEeW_xMYDHJoL1w"/>
+      </ownedUseCase>
+      <ownedUseCase xmi:id="_MgeFfXEPEeW_xMYDHJoL1w" name="Spécifier chaque commande" subject="_MgeFcHEPEeW_xMYDHJoL1w">
+        <extend xmi:id="_MgeFfnEPEeW_xMYDHJoL1w" extendedCase="_MgeFeXEPEeW_xMYDHJoL1w"/>
+      </ownedUseCase>
+      <ownedUseCase xmi:id="_MgeFf3EPEeW_xMYDHJoL1w" name="Noter commande" subject="_MgeFcHEPEeW_xMYDHJoL1w">
+        <extend xmi:id="_MgeFgHEPEeW_xMYDHJoL1w" extendedCase="_MgeFdHEPEeW_xMYDHJoL1w"/>
+      </ownedUseCase>
+      <ownedUseCase xmi:id="_MgeFgXEPEeW_xMYDHJoL1w" name="valider une commende" subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFgnEPEeW_xMYDHJoL1w" name="Annuler" subject="_MgeFcHEPEeW_xMYDHJoL1w">
+        <extend xmi:id="_MgeFg3EPEeW_xMYDHJoL1w" extendedCase="_MgeFdHEPEeW_xMYDHJoL1w"/>
+      </ownedUseCase>
+      <ownedUseCase xmi:id="_MgeFhHEPEeW_xMYDHJoL1w" name="Gerer les menus / prix" subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFhXEPEeW_xMYDHJoL1w" name="Consulter son profil" subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFhnEPEeW_xMYDHJoL1w" name="Spécifier liste des zone pour livraision" subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFh3EPEeW_xMYDHJoL1w" name="Spécifier les types des livraisons" subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFiHEPEeW_xMYDHJoL1w" name="Spécifier lieu de livraison" subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFiXEPEeW_xMYDHJoL1w" name="Choisir un rest " subject="_MgeFcHEPEeW_xMYDHJoL1w"/>
+      <ownedUseCase xmi:id="_MgeFinEPEeW_xMYDHJoL1w" name="Livrer une commende"/>
+    </nestedArtifact>
   </packagedElement>
   <packagedElement xmi:type="uml:Actor" xmi:id="_xJmgf3BdEeWOZIUIG_9YKw" name="Client"/>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_xJvqfHBdEeWOZIUIG_9YKw" name="Responsable du restaurant"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_xJvqfHBdEeWOZIUIG_9YKw" name="Chief"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_SpNqwHBeEeWOZIUIG_9YKw" memberEnd="_SpNqwXBeEeWOZIUIG_9YKw _SpNqwnBeEeWOZIUIG_9YKw">
     <ownedEnd xmi:id="_SpNqwXBeEeWOZIUIG_9YKw" type="_xJmgf3BdEeWOZIUIG_9YKw" association="_SpNqwHBeEeWOZIUIG_9YKw"/>
     <ownedEnd xmi:id="_SpNqwnBeEeWOZIUIG_9YKw" type="_xJ5bU3BdEeWOZIUIG_9YKw" association="_SpNqwHBeEeWOZIUIG_9YKw"/>
