@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
-import javax.ws.rs.DefaultValue;
 
 import entities.embedded.ItemOrderId;
 
@@ -13,7 +12,7 @@ import entities.embedded.ItemOrderId;
 public class ItemOrder implements Serializable {
 
 	private ItemOrderId id;
-	private double qte = 1;
+	private double quantity = 1;
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,15 +20,15 @@ public class ItemOrder implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemOrder(Menu menu, Order order, double qte) {
+	public ItemOrder(Menu menu, Order order, double quantity) {
 
 		this.id = new ItemOrderId(menu.getId(), order.getId());
-		this.qte = qte;
+		this.quantity = quantity;
 	}
 
 	@Override
 	public String toString() {
-		return "ItemOrder [id=" + id + ", qte=" + qte + "]";
+		return "ItemOrder [id=" + id + ", quantity=" + quantity + "]";
 	}
 
 	@EmbeddedId
@@ -40,15 +39,16 @@ public class ItemOrder implements Serializable {
 	public void setId(ItemOrderId id) {
 		this.id = id;
 	}
-
 	@NotNull
-	@DefaultValue(value = "1")
-	public double getQte() {
-		return qte;
+	public double getQuantity() {
+		return quantity;
 	}
 
-	public void setQte(double qte) {
-		this.qte = qte;
+	public void setQuantity(double quantity) {
+		this.quantity = quantity;
 	}
+
+	
+	
 
 }
