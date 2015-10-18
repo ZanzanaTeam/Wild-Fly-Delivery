@@ -1,12 +1,10 @@
+package entities;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import entities.embedded.NoteId;
 
@@ -16,15 +14,13 @@ public class Note implements Serializable {
 	private NoteId id;
 	private Date dateNote;
 	private Integer rating;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public Note() {
 	}
-	
-	
 
-	public Note(Customer customer , Order order, Date dateNote, Integer rating) {
+	public Note(Customer customer, Order order, Date dateNote, Integer rating) {
 
 		this.id = new NoteId(customer.getId(), order.getId());
 		this.dateNote = dateNote;
@@ -62,8 +58,6 @@ public class Note implements Serializable {
 		this.rating = rating;
 	}
 
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -74,8 +68,6 @@ public class Note implements Serializable {
 		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -103,8 +95,5 @@ public class Note implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
 
 }
