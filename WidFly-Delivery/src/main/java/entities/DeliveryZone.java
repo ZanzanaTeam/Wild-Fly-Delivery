@@ -20,6 +20,8 @@ public class DeliveryZone implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private String foursquareId;
+	
 	public DeliveryZone() {
 	}
 
@@ -99,6 +101,16 @@ public class DeliveryZone implements Serializable {
 
 	public void setMinPrice(double minPrice) {
 		this.minPrice = minPrice;
+	}
+
+
+	public String getFoursquareId() {
+		return foursquareId;
+	}
+
+
+	public void setFoursquareId(String foursquareId) {
+		this.foursquareId = foursquareId;
 	}
 
 }

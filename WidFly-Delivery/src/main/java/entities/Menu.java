@@ -1,11 +1,14 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.naming.LimitExceededException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -17,6 +20,10 @@ public class Menu implements Serializable {
 	private String details;
 	private static final long serialVersionUID = 1L;
 
+	private List<ItemOrder> itemOrders;
+	
+	private String foursquareId;
+	
 	public Menu() {
 		super();
 
@@ -69,6 +76,23 @@ public class Menu implements Serializable {
 
 	public void setDetails(String details) {
 		this.details = details;
+	}
+
+	@OneToMany(mappedBy="menu")
+	public List<ItemOrder> getItemOrders() {
+		return itemOrders;
+	}
+
+	public void setItemOrders(List<ItemOrder> itemOrders) {
+		this.itemOrders = itemOrders;
+	}
+
+	public String getFoursquareId() {
+		return foursquareId;
+	}
+
+	public void setFoursquareId(String foursquareId) {
+		this.foursquareId = foursquareId;
 	}
 
 }

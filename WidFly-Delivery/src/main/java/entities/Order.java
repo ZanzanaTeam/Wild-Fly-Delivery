@@ -2,11 +2,14 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import entities.embedded.Address;
@@ -23,6 +26,12 @@ public class Order implements Serializable {
 	private OrderState orderState;
 	private DeliveryType livraisonType;
 	private static final long serialVersionUID = 1L;
+
+	private Customer customer;
+	private List<Note> notes;
+
+	private List<Payment> payments;
+	private List<ItemOrder> itemOrders;
 
 	public Order() {
 
@@ -84,6 +93,42 @@ public class Order implements Serializable {
 
 	public void setLocationDelivery(Address locationDelivery) {
 		this.locationDelivery = locationDelivery;
+	}
+
+	@ManyToOne
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	@OneToMany(mappedBy = "order")
+	public List<Note> getNotes() {
+		return notes;
+	}
+
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
+	}
+
+	@OneToMany(mappedBy = "order")
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
+	}
+
+	@OneToMany(mappedBy = "order")
+	public List<ItemOrder> getItemOrders() {
+		return itemOrders;
+	}
+
+	public void setItemOrders(List<ItemOrder> itemOrders) {
+		this.itemOrders = itemOrders;
 	}
 
 }

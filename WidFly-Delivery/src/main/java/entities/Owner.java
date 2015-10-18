@@ -12,7 +12,7 @@ public class Owner extends Customer implements Serializable {
 	private String idFoursquare;
 	
 	private static final long serialVersionUID = 1L;
-	
+		
 	public Owner() {
 		// TODO Auto-generated constructor stub
 	}

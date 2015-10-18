@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import entities.embedded.NoteId;
 
@@ -16,7 +18,10 @@ public class Note implements Serializable {
 	private Integer rating;
 
 	private static final long serialVersionUID = 1L;
-
+	
+	private Order order;
+	private Customer customer;
+	
 	public Note() {
 	}
 
@@ -94,6 +99,25 @@ public class Note implements Serializable {
 		} else if (!rating.equals(other.rating))
 			return false;
 		return true;
+	}
+
+	@ManyToOne
+	@JoinColumn(name="orderId" , referencedColumnName="id" , updatable =false , insertable = false)
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+	@ManyToOne
+	@JoinColumn(name="customerId" , referencedColumnName="id" , updatable =false, insertable= false)
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 }
