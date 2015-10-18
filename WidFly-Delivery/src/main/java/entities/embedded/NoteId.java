@@ -13,6 +13,12 @@ public class NoteId implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer customerId;
 	private Integer orderId;
+	
+	
+
+	public NoteId() {
+		super();
+	}
 
 	public NoteId(Integer customerId, Integer orderId) {
 		this.customerId = customerId;
