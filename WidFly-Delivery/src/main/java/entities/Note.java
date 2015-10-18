@@ -5,9 +5,6 @@ import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import entities.embedded.NoteId;
 
@@ -17,13 +14,13 @@ public class Note implements Serializable {
 	private NoteId id;
 	private Date dateNote;
 	private Integer rating;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public Note() {
 	}
 
-	public Note(Customer customer , Order order, Date dateNote, Integer rating) {
+	public Note(Customer customer, Order order, Date dateNote, Integer rating) {
 
 		this.id = new NoteId(customer.getId(), order.getId());
 		this.dateNote = dateNote;
@@ -60,8 +57,43 @@ public class Note implements Serializable {
 	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
-	
-	
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((dateNote == null) ? 0 : dateNote.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Note other = (Note) obj;
+		if (dateNote == null) {
+			if (other.dateNote != null)
+				return false;
+		} else if (!dateNote.equals(other.dateNote))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (rating == null) {
+			if (other.rating != null)
+				return false;
+		} else if (!rating.equals(other.rating))
+			return false;
+		return true;
+	}
 
 }
