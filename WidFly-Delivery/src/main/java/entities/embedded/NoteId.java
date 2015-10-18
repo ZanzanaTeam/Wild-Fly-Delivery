@@ -7,9 +7,6 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class NoteId implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Integer customerId;
 	private Integer orderId;
