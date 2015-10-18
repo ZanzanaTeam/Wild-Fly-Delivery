@@ -5,9 +5,6 @@ import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import entities.embedded.NoteId;
 
@@ -17,13 +14,13 @@ public class Note implements Serializable {
 	private NoteId id;
 	private Date dateNote;
 	private Integer rating;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public Note() {
 	}
 
-	public Note(Customer customer , Order order, Date dateNote, Integer rating) {
+	public Note(Customer customer, Order order, Date dateNote, Integer rating) {
 
 		this.id = new NoteId(customer.getId(), order.getId());
 		this.dateNote = dateNote;
@@ -60,8 +57,5 @@ public class Note implements Serializable {
 	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
-	
-	
-	
 
 }
