@@ -10,6 +10,9 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class MenuSpecification implements Serializable {
+	public MenuSpecification() {
+		// TODO Auto-generated constructor stub
+	}
 
 	private Integer id;
 	private String comment;
