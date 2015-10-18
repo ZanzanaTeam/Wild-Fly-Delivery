@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Menu implements Serializable {
@@ -28,6 +29,12 @@ public class Menu implements Serializable {
 		this.details = details;
 	}
 
+	@Override
+	public String toString() {
+		return "Menu [id=" + id + ", name=" + name + ", price=" + price
+				+ ", details=" + details + "]";
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
@@ -38,11 +45,7 @@ public class Menu implements Serializable {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "Menu [id=" + id + "]";
-	}
-
+	@NotNull
 	public String getName() {
 		return name;
 	}
@@ -51,6 +54,7 @@ public class Menu implements Serializable {
 		this.name = name;
 	}
 
+	@NotNull
 	public Double getPrice() {
 		return price;
 	}

@@ -6,21 +6,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import entities.embedded.Address;
 
 @Entity
 public class Customer implements Serializable {
 
 	private Integer id;
-	private String full_name;
+	private String fullName;
+	private Address address;
+
 	private static final long serialVersionUID = 1L;
 
 	public Customer() {
 
 	}
 
-	public Customer(String full_name) {
+	public Customer(String fullName, Address address) {
 		super();
-		this.full_name = full_name;
+		this.fullName = fullName;
+		this.address = address;
 	}
 
 	@Id
@@ -33,17 +39,26 @@ public class Customer implements Serializable {
 		this.id = id;
 	}
 
-	public String getFull_name() {
-		return full_name;
+	@NotNull
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFull_name(String fullname) {
-		this.full_name = fullname;
+	public void setFullName(String fullname) {
+		this.fullName = fullname;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [fullname=" + full_name + "]";
+		return "Customer [fullname=" + fullName + "]";
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }

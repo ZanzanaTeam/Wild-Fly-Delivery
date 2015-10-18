@@ -4,11 +4,16 @@
 	<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
 	<class>entities.Customer</class>
 	<class>entities.DeliveryZone</class>
-	<class>entities.EntityTest</class>
+	<class>entities.ItemOrder</class>
 	<class>entities.Menu</class>
 	<class>entities.Note</class>
 	<class>entities.Order</class>
+	<class>entities.Owner</class>
 	<class>entities.Payment</class>
+	<class>entities.SimpleUser</class>
+	<class>entities.embedded.Address</class>
+	<class>entities.embedded.ItemOrderId</class>
+	<class>entities.embedded.NoteId</class>
 	
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />

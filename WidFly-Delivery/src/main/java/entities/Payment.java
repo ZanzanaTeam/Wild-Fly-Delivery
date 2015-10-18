@@ -1,18 +1,22 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import entities.enumeration.PayementType;
+
 @Entity
 public class Payment implements Serializable {
 	
 	private Integer id ;
-	private Boolean payement_type ;
-	private Double amount ; 
+	private PayementType payementType ;
+	private Double amount ;
+	private Date payementDate;
 
 	private static final long serialVersionUID = 1L;
 		
@@ -23,9 +27,9 @@ public class Payment implements Serializable {
 		
 		
 
-		public Payment(Boolean payement_type, Double amount) {
+		public Payment(PayementType payementType, Double amount) {
 			super();
-			this.payement_type = payement_type;
+			this.payementType = payementType;
 			this.amount = amount;
 		}
 
@@ -43,14 +47,14 @@ public class Payment implements Serializable {
 		}
 		
 		
-		public Boolean getPayement_type() {
-			return payement_type;
+		public PayementType getPayement_type() {
+			return payementType;
 		}
 
 
 
-		public void setPayement_type(Boolean payement_type) {
-			this.payement_type = payement_type;
+		public void setPayement_type(PayementType payementType) {
+			this.payementType = payementType;
 		}
 
 
@@ -69,8 +73,20 @@ public class Payment implements Serializable {
 
 		@Override
 		public String toString() {
-			return "Payment [payement_type=" + payement_type + ", amount="
+			return "Payment [payementType=" + payementType + ", amount="
 					+ amount + "]";
+		}
+
+
+
+		public Date getPayementDate() {
+			return payementDate;
+		}
+
+
+
+		public void setPayementDate(Date payementDate) {
+			this.payementDate = payementDate;
 		}
 
 
