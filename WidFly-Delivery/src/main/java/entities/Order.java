@@ -9,28 +9,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import entities.enumeration.LivraisonType;
+import entities.embedded.Address;
+import entities.enumeration.DeliveryType;
 import entities.enumeration.OrderState;
 
 @Entity
-@Table(name="T_Order")
+@Table(name = "T_Order")
 public class Order implements Serializable {
 
 	private Integer id;
 	private Date orderDate;
-	private String locationDelevery;
+	private Address locationDelivery;
 	private OrderState orderState;
-	private LivraisonType livraisonType;
+	private DeliveryType livraisonType;
 	private static final long serialVersionUID = 1L;
 
 	public Order() {
 
 	}
 
-	public Order(Date orderDate, String locationDelevery,
-			OrderState orderState, LivraisonType livraisonType) {
+	public Order(Date orderDate, Address locationDelivery,
+			OrderState orderState, DeliveryType livraisonType) {
+		super();
 		this.orderDate = orderDate;
-		this.locationDelevery = locationDelevery;
+		this.locationDelivery = locationDelivery;
 		this.orderState = orderState;
 		this.livraisonType = livraisonType;
 	}
@@ -38,7 +40,7 @@ public class Order implements Serializable {
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", orderDate=" + orderDate
-				+ ", locationDelevery=" + locationDelevery + ", orderState="
+				+ ", locationDelivery=" + locationDelivery + ", orderState="
 				+ orderState + ", livraisonType=" + livraisonType + "]";
 	}
 
@@ -60,14 +62,6 @@ public class Order implements Serializable {
 		this.orderDate = orderDate;
 	}
 
-	public String getLocationDelevery() {
-		return locationDelevery;
-	}
-
-	public void setLocationDelevery(String locationDelevery) {
-		this.locationDelevery = locationDelevery;
-	}
-
 	public OrderState getOrderState() {
 		return orderState;
 	}
@@ -76,13 +70,20 @@ public class Order implements Serializable {
 		this.orderState = orderState;
 	}
 
-	public LivraisonType getLivraisonType() {
+	public DeliveryType getLivraisonType() {
 		return livraisonType;
 	}
 
-	public void setLivraisonType(LivraisonType livraisonType) {
+	public void setLivraisonType(DeliveryType livraisonType) {
 		this.livraisonType = livraisonType;
 	}
 
+	public Address getLocationDelivery() {
+		return locationDelivery;
+	}
+
+	public void setLocationDelivery(Address locationDelivery) {
+		this.locationDelivery = locationDelivery;
+	}
 
 }

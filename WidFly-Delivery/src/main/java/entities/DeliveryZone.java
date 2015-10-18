@@ -12,29 +12,39 @@ import javax.validation.constraints.NotNull;
 public class DeliveryZone implements Serializable {
 
 	private Integer id;
-	private String name;
-	private double time;
+	private String region;
+	private double estimatedTime;
 	private double distance;
 	private double price;
+	private double minPrice;
 
 	private static final long serialVersionUID = 1L;
 
 	public DeliveryZone() {
 	}
 
-	public DeliveryZone(String name, double time, double distance, double price) {
-		this.name = name;
-		this.time = time;
-		this.distance = distance;
-		this.setPrice(price);
-	}
-
-
+	
 	@Override
 	public String toString() {
-		return "DeliveryZone [id=" + id + ", name=" + name + ", time=" + time
-				+ ", distance=" + distance + ", price=" + price + "]";
+		return "DeliveryZone [id=" + id + ", region=" + region
+				+ ", estimatedTime=" + estimatedTime + ", distance=" + distance
+				+ ", price=" + price + ", minPrice=" + minPrice + "]";
 	}
+
+
+
+
+
+	public DeliveryZone(String region, double estimatedTime, double distance,
+			double price, double minPrice) {
+		super();
+		this.region = region;
+		this.estimatedTime = estimatedTime;
+		this.distance = distance;
+		this.price = price;
+		this.minPrice = minPrice;
+	}
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,20 +57,12 @@ public class DeliveryZone implements Serializable {
 	}
 
 	@NotNull
-	public String getName() {
-		return name;
+	public String getRegion() {
+		return region;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public double getTime() {
-		return time;
-	}
-
-	public void setTime(double time) {
-		this.time = time;
+	public void setRegion(String name) {
+		this.region = name;
 	}
 
 	public double getDistance() {
@@ -70,6 +72,15 @@ public class DeliveryZone implements Serializable {
 	public void setDistance(double distance) {
 		this.distance = distance;
 	}
+	
+
+	public double getEstimatedTime() {
+		return estimatedTime;
+	}
+
+	public void setEstimatedTime(double estimatedTime) {
+		this.estimatedTime = estimatedTime;
+	}
 
 	@NotNull
 	public double getPrice() {
@@ -78,6 +89,16 @@ public class DeliveryZone implements Serializable {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+
+	public double getMinPrice() {
+		return minPrice;
+	}
+
+
+	public void setMinPrice(double minPrice) {
+		this.minPrice = minPrice;
 	}
 
 }

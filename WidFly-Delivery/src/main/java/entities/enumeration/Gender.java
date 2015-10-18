@@ -1,5 +1,5 @@
 package entities.enumeration;
 
 public enum Gender {
-	Male,Female 
+	Male,Female,notSpecified
 }
