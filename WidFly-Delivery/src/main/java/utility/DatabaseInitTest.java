@@ -14,7 +14,7 @@ import services.interfaces.basic.FactoryServiceLocal;
 @Singleton
 @LocalBean
 @Startup
-public class DatabaseInit {
+public class DatabaseInitTest {
 
 	@EJB
 	FactoryServiceLocal serviceLocal;
