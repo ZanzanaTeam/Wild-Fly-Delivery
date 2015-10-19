@@ -3,7 +3,11 @@ package utility;
 import fi.foyt.foursquare.api.FoursquareApi;
 import fi.foyt.foursquare.api.FoursquareApiException;
 import fi.foyt.foursquare.api.entities.CompleteUser;
-
+/**
+ * 
+ * @author Medaymen
+ *
+ */
 public class ForsquareUtility {
 
 	private static final String CLIENT_ID = "DWHLE1OQJBM2HENXFNAR1CGPOEYTCEKHRSF5AV5ZXGD5ZT1Q";
