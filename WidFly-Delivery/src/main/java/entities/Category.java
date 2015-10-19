@@ -16,7 +16,9 @@ public class Category implements Serializable {
 	private String id;
 	private String name;
 	private String icon;
-
+	public Category() {
+		// TODO Auto-generated constructor stub
+	}
 	private static final long serialVersionUID = 1L;
 
 	private List<Restaurant> restaurants;
