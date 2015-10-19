@@ -1,14 +1,26 @@
 package entities;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import entities.embedded.Address;
 
-public class Restaurant {
+@Entity
+public class Restaurant implements Serializable {
 
 	private String id;
 	private String name;
 	private Address address;
-	private Category category;
 
+	private static final long serialVersionUID = 1L;
+
+	private Category category;
+	private Owner owner;
+	
 	public Restaurant() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,6 +38,7 @@ public class Restaurant {
 				+ address + ", category=" + category + "]";
 	}
 
+	@Id
 	public String getId() {
 		return id;
 	}
@@ -50,6 +63,7 @@ public class Restaurant {
 		this.address = address;
 	}
 
+	@ManyToOne(cascade = CascadeType.MERGE)
 	public Category getCategory() {
 		return category;
 	}
@@ -57,4 +71,14 @@ public class Restaurant {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	@ManyToOne
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
 }

@@ -2,16 +2,29 @@ package entities;
 
 import java.util.List;
 
-public class Complaint extends Restaurant {
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
+import entities.embedded.Address;
+
+@Entity
+public class Complaint extends Restaurant  {
+
+	/**
+	 * 
+	 */
+	
 	private List<Menu> menus;
 	private List<DeliveryZone> deliveryZones;
+
+	private static final long serialVersionUID = 1L;
 
 	public Complaint() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Complaint(List<Menu> menus, List<DeliveryZone> deliveryZones) {
+	public Complaint(String id, String name, Address address, Category category,List<Menu> menus, List<DeliveryZone> deliveryZones) {
+		super(id, name, address, category);
 		this.menus = menus;
 		this.deliveryZones = deliveryZones;
 	}
@@ -22,6 +35,7 @@ public class Complaint extends Restaurant {
 				+ "]";
 	}
 
+	@OneToMany(mappedBy="complaint")
 	public List<Menu> getMenus() {
 		return menus;
 	}
@@ -30,6 +44,7 @@ public class Complaint extends Restaurant {
 		this.menus = menus;
 	}
 
+	@OneToMany(mappedBy="complaint")
 	public List<DeliveryZone> getDeliveryZones() {
 		return deliveryZones;
 	}
