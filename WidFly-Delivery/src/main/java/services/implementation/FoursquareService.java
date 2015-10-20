@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import services.interfaces.FoursquareServiceLocal;
 import services.interfaces.FoursquareServiceRemote;
 import utility.FoursquareUtility;
@@ -55,7 +58,7 @@ public class FoursquareService implements FoursquareServiceRemote,
 
 		try {
 			Result<Category[]> result = foursquareApi.venuesCategories();
-			System.out.println("Resultat Code : "+result.getMeta().getCode());
+			System.out.println("Resultat Code : " + result.getMeta().getCode());
 			if (result.getMeta().getCode() == 200) {
 
 				if (result.getResult().length > 0)
@@ -66,11 +69,19 @@ public class FoursquareService implements FoursquareServiceRemote,
 						Category[] cat = category.getCategories();
 
 						for (int i = 0; i < cat.length; i++) {
-							System.out.print(cat[i].getName() + "\n");
+
+							String icon = "";
+							try {
+								JSONObject json = new JSONObject(
+										cat[i].getIcon());
+								icon = json.get("prefix") + cat[i].getId()
+										+ json.get("suffix");
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 
 							categories.add(new entities.Category(
-									cat[i].getId(), cat[i].getName(), cat[i]
-											.getIcon()));
+									cat[i].getId(), cat[i].getName(), icon));
 						}
 					}
 				}
@@ -85,7 +96,7 @@ public class FoursquareService implements FoursquareServiceRemote,
 			}
 
 		} catch (FoursquareApiException e) {
-			
+
 			System.err.println("Category foursquare Erreur");
 		}
 

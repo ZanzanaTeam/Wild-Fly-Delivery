@@ -2,6 +2,7 @@
     <deployment>
         <dependencies>
             <module name="fi.foyt" />
+            <module name="org.json" />
         </dependencies>
     </deployment>
 </jboss-deployment-structure>
