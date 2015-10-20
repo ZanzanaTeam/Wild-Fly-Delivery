@@ -1,14 +1,25 @@
 package entities;
 
+import javax.persistence.Entity;
+
+import entities.embedded.Address;
+
+@Entity
 public class NotComplaint extends Restaurant {
 	
+	/**
+	 * 
+	 */
 	private String itinerary;
 	
+	private static final long serialVersionUID = 1L;
+
 	public NotComplaint() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public NotComplaint(String itinerary) {
+	public NotComplaint(String id, String name, Address address, Category category,String itinerary) {
+		super(id, name, address, category);
 		this.itinerary = itinerary;
 	}
 

@@ -4,7 +4,6 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import services.interfaces.basic.FactoryServiceLocal;
-import services.interfaces.basic.FactoryServiceRemote;
 import services.interfaces.basic.ServicesBasicRemote;
 import entities.DeliveryZone;
 import entities.ItemOrder;
@@ -22,8 +21,7 @@ import entities.SimpleUser;
  */
 
 @Stateless
-public class FactoryService implements FactoryServiceLocal,
-		FactoryServiceRemote {
+public class FactoryService implements FactoryServiceLocal {
 
 	@EJB
 	ServicesBasicRemote<SimpleUser> simpleUser;
@@ -47,7 +45,7 @@ public class FactoryService implements FactoryServiceLocal,
 	public FactoryService() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public ServicesBasicRemote<SimpleUser> getSimpleUserEjb() {
 		return simpleUser;

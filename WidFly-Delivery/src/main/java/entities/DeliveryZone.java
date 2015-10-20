@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -20,7 +21,7 @@ public class DeliveryZone implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String foursquareId;
+	private Complaint complaint; 
 	
 	public DeliveryZone() {
 	}
@@ -102,15 +103,15 @@ public class DeliveryZone implements Serializable {
 	public void setMinPrice(double minPrice) {
 		this.minPrice = minPrice;
 	}
-
-
-	public String getFoursquareId() {
-		return foursquareId;
+	
+	@ManyToOne
+	public Complaint getComplaint() {
+		return complaint;
 	}
 
 
-	public void setFoursquareId(String foursquareId) {
-		this.foursquareId = foursquareId;
+	public void setComplaint(Complaint complaint) {
+		this.complaint = complaint;
 	}
 
 }
