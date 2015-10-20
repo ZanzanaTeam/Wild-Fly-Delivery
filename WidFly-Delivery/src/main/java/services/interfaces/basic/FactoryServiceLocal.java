@@ -2,6 +2,7 @@ package services.interfaces.basic;
 
 import javax.ejb.Local;
 
+import entities.Category;
 import entities.DeliveryZone;
 import entities.ItemOrder;
 import entities.Menu;
@@ -19,7 +20,8 @@ import entities.SimpleUser;
 
 @Local
 public interface FactoryServiceLocal {
-	ServicesBasicRemote<SimpleUser> getSimpleUserEjb();
+
+	ServicesBasicLocal<SimpleUser> getSimpleUserEjb();
 
 	ServicesBasicRemote<Order> getOrderEjb();
 
@@ -36,4 +38,6 @@ public interface FactoryServiceLocal {
 	ServicesBasicRemote<MenuSpecification> getMenuSpecificationEjb();
 
 	ServicesBasicRemote<Payment> getPayementEjb();
+
+	ServicesBasicLocal<Category> getCategoryEjb();
 }

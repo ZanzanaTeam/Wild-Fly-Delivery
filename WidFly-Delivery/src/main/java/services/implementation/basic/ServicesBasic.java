@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import services.interfaces.basic.ServicesBasicLocal;
 import services.interfaces.basic.ServicesBasicRemote;
 
 /**
@@ -14,7 +15,7 @@ import services.interfaces.basic.ServicesBasicRemote;
  */
 
 @Stateless
-public class ServicesBasic<T> implements ServicesBasicRemote<T> {
+public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLocal<T> {
 
 	@PersistenceContext
 	EntityManager entityManager;

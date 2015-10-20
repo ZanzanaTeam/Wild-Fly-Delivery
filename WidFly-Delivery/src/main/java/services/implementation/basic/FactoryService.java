@@ -4,7 +4,9 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import services.interfaces.basic.FactoryServiceLocal;
+import services.interfaces.basic.ServicesBasicLocal;
 import services.interfaces.basic.ServicesBasicRemote;
+import entities.Category;
 import entities.DeliveryZone;
 import entities.ItemOrder;
 import entities.Menu;
@@ -24,7 +26,7 @@ import entities.SimpleUser;
 public class FactoryService implements FactoryServiceLocal {
 
 	@EJB
-	ServicesBasicRemote<SimpleUser> simpleUser;
+	ServicesBasicLocal<SimpleUser> simpleUser;
 	@EJB
 	ServicesBasicRemote<Order> order;
 	@EJB
@@ -41,13 +43,15 @@ public class FactoryService implements FactoryServiceLocal {
 	ServicesBasicRemote<MenuSpecification> menuSpecification;
 	@EJB
 	ServicesBasicRemote<Payment> payement;
+	@EJB
+	ServicesBasicLocal<Category> category;
 
 	public FactoryService() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public ServicesBasicRemote<SimpleUser> getSimpleUserEjb() {
+	public ServicesBasicLocal<SimpleUser> getSimpleUserEjb() {
 		return simpleUser;
 	}
 
@@ -89,5 +93,10 @@ public class FactoryService implements FactoryServiceLocal {
 	@Override
 	public ServicesBasicRemote<Payment> getPayementEjb() {
 		return payement;
+	}
+
+	@Override
+	public ServicesBasicLocal<Category> getCategoryEjb() {
+		return category;
 	}
 }
