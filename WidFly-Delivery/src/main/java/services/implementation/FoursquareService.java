@@ -22,7 +22,7 @@ public class FoursquareService implements FoursquareServiceRemote,
 		FoursquareServiceLocal {
 
 	private FoursquareApi foursquareApi;
-	private final String CATEGORY_FOOD = "4bf58dd8d48988d1e0931735";
+	private final String CATEGORY_FOOD = "4d4b7105d754a06374d81259";
 
 	public FoursquareService() {
 		foursquareApi = FoursquareUtility.getFoursquareApi();
@@ -55,7 +55,7 @@ public class FoursquareService implements FoursquareServiceRemote,
 
 		try {
 			Result<Category[]> result = foursquareApi.venuesCategories();
-
+			System.out.println("Resultat Code : "+result.getMeta().getCode());
 			if (result.getMeta().getCode() == 200) {
 
 				if (result.getResult().length > 0)
@@ -85,7 +85,7 @@ public class FoursquareService implements FoursquareServiceRemote,
 			}
 
 		} catch (FoursquareApiException e) {
-			e.printStackTrace();
+			
 			System.err.println("Category foursquare Erreur");
 		}
 

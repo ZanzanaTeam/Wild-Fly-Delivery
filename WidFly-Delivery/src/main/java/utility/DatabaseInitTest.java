@@ -33,7 +33,7 @@ public class DatabaseInitTest {
 						"medaymenjendoubi@gmail.com", Gender.Male));
 		
 		List<Category> categories = foursquareLocal.findAllCategory();
-		
+		System.out.println("Categories count : "+categories.size());
 		for(Category category : categories){
 			serviceLocal.getCategoryEjb().add(category);
 		}
