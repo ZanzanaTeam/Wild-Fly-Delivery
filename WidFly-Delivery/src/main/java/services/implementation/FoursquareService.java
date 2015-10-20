@@ -33,7 +33,6 @@ public class FoursquareService implements FoursquareServiceRemote,
 
 	public CompleteUser getUserAuthenticated() {
 		try {
-
 			return foursquareApi.user("self").getResult();
 		} catch (FoursquareApiException e) {
 			return null;

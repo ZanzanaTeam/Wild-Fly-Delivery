@@ -37,6 +37,7 @@ public class BasicExample<T> implements BasicExampleLocal<T> {
 				// TODO: Do something we the data
 				System.out.print(venue.getName() + " ("
 						+ venue.getCategories().length + ")");
+				
 				Category[] categories = venue.getCategories();
 				for (int i = 0; i < categories.length; i++) {
 					System.out.print(categories[i] + "\t");
