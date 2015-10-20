@@ -29,13 +29,12 @@
 			<version>9.0.0.Alpha1</version>
 			<type>pom</type>
 		</dependency>
-
 		<dependency>
 			<groupId>tn.edu.esprit.zanzana</groupId>
 			<artifactId>WidFly-Delivery</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<packaging>ejb</packaging>
 		</dependency>
+
 	</dependencies>
 
 	<build>
