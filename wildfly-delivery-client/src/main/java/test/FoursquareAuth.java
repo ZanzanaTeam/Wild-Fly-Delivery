@@ -15,6 +15,7 @@ public class FoursquareAuth {
 		FoursquareAuthServicesDelegate.confirmAuthentification(code);
 		System.out.println(FoursquareAuthServicesDelegate
 				.getUserAuthenticated().getFirstName());
+		scanner.close();
 	}
 
 }

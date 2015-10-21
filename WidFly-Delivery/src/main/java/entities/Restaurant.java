@@ -1,11 +1,13 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import entities.embedded.Address;
 
@@ -20,6 +22,7 @@ public class Restaurant implements Serializable {
 
 	private Category category;
 	private Owner owner;
+	private List<Order> orders;
 	
 	public Restaurant() {
 		// TODO Auto-generated constructor stub
@@ -79,6 +82,15 @@ public class Restaurant implements Serializable {
 
 	public void setOwner(Owner owner) {
 		this.owner = owner;
+	}
+	
+	@OneToMany(mappedBy="restaurant")
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 }
