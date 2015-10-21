@@ -20,8 +20,8 @@ public class FoursquareAuthServicesDelegate {
 		return getProxy().getUserAuthenticated();
 	}
 
-	public static void confirmAuthentification(String code) {
-		getProxy().confirmAuthentification(code);
+	public static String confirmAuthentification(String code) {
+		return getProxy().confirmAuthentification(code);
 	}
 
 	public static String getUrlAuthentification() {

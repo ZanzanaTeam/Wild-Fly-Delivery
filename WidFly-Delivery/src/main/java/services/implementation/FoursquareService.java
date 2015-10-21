@@ -40,11 +40,12 @@ public class FoursquareService implements FoursquareServiceRemote,
 		}
 	}
 
-	public void confirmAuthentification(String code) {
+	public String confirmAuthentification(String code) {
 		try {
 			foursquareApi.authenticateCode(code);
+			return foursquareApi.getOAuthToken();
 		} catch (FoursquareApiException e) {
-
+			return null; 
 		}
 	}
 

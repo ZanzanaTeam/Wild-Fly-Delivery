@@ -29,8 +29,11 @@ public class DatabaseInitTest {
 				new SimpleUser("jendoubi", new Address("61490", "Tunis",
 						"Tunisie", 0, 0), "25497002",
 						"medaymenjendoubi@gmail.com", Gender.Male));
+		serviceLocal.getSimpleUserEjb().add(
+				new SimpleUser("SeifAllah Mhadhbi", new Address("1", "Cartage",
+						"Tunisie", 0, 0), "25947116",
+						"seifallahmhadhbi@gmail.com", Gender.Male));
 
 		System.out.println("End init");
 	}
-
 }

@@ -8,7 +8,7 @@ import fi.foyt.foursquare.api.entities.CompleteUser;
 public interface FoursquareServiceRemote {
 
 	String getUrlAuthentification();
-	void confirmAuthentification(String code);
+	String confirmAuthentification(String code);
 	CompleteUser getUserAuthenticated();
 	
 	
