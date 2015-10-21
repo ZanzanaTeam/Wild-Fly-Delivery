@@ -19,7 +19,6 @@ public class MenuService implements MenuServiceRemote {
 
 	@Override
 	public void assignMenu(int menuId, int restaurantId) {
-		// TODO Auto-generated method stub
 
 	}
 

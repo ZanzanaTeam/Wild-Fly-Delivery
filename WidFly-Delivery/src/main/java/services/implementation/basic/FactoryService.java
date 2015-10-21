@@ -28,21 +28,21 @@ public class FactoryService implements FactoryServiceLocal {
 	@EJB
 	ServicesBasicLocal<SimpleUser> simpleUser;
 	@EJB
-	ServicesBasicRemote<Order> order;
+	ServicesBasicLocal<Order> order;
 	@EJB
-	ServicesBasicRemote<Menu> menu;
+	ServicesBasicLocal<Menu> menu;
 	@EJB
-	ServicesBasicRemote<DeliveryZone> deliveryZone;
+	ServicesBasicLocal<DeliveryZone> deliveryZone;
 	@EJB
-	ServicesBasicRemote<ItemOrder> itemOrder;
+	ServicesBasicLocal<ItemOrder> itemOrder;
 	@EJB
-	ServicesBasicRemote<Note> note;
+	ServicesBasicLocal<Note> note;
 	@EJB
-	ServicesBasicRemote<Owner> owner;
+	ServicesBasicLocal<Owner> owner;
 	@EJB
-	ServicesBasicRemote<MenuSpecification> menuSpecification;
+	ServicesBasicLocal<MenuSpecification> menuSpecification;
 	@EJB
-	ServicesBasicRemote<Payment> payement;
+	ServicesBasicLocal<Payment> payement;
 	@EJB
 	ServicesBasicLocal<Category> category;
 
@@ -56,42 +56,42 @@ public class FactoryService implements FactoryServiceLocal {
 	}
 
 	@Override
-	public ServicesBasicRemote<Order> getOrderEjb() {
+	public ServicesBasicLocal<Order> getOrderEjb() {
 		return order;
 	}
 
 	@Override
-	public ServicesBasicRemote<Menu> getMenusEjb() {
+	public ServicesBasicLocal<Menu> getMenusEjb() {
 		return menu;
 	}
 
 	@Override
-	public ServicesBasicRemote<DeliveryZone> getDeliveryZoneEjb() {
+	public ServicesBasicLocal<DeliveryZone> getDeliveryZoneEjb() {
 		return deliveryZone;
 	}
 
 	@Override
-	public ServicesBasicRemote<ItemOrder> getItemOrderEjb() {
+	public ServicesBasicLocal<ItemOrder> getItemOrderEjb() {
 		return itemOrder;
 	}
 
 	@Override
-	public ServicesBasicRemote<Note> getNoteEjb() {
+	public ServicesBasicLocal<Note> getNoteEjb() {
 		return note;
 	}
 
 	@Override
-	public ServicesBasicRemote<Owner> getOwnerEjb() {
+	public ServicesBasicLocal<Owner> getOwnerEjb() {
 		return owner;
 	}
 
 	@Override
-	public ServicesBasicRemote<MenuSpecification> getMenuSpecificationEjb() {
+	public ServicesBasicLocal<MenuSpecification> getMenuSpecificationEjb() {
 		return menuSpecification;
 	}
 
 	@Override
-	public ServicesBasicRemote<Payment> getPayementEjb() {
+	public ServicesBasicLocal<Payment> getPayementEjb() {
 		return payement;
 	}
 

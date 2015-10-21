@@ -22,7 +22,6 @@ public class OrderService implements OrderServiceRemote {
 
 	@Override
 	public void changeState(OrderState orderState) {
-		// TODO Auto-generated method stub
 
 	}
 
