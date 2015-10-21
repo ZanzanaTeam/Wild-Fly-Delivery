@@ -22,9 +22,7 @@ public class DeliveryZoneService implements DeliveryZoneServiceRemote {
 
 	@Override
 	public void assignDeliveryZone(DeliveryZone deliveryZone, int restaurantId) {
-		Complaint complaint = factoryServiceLocal.getDeliveryZoneEjb().add(
-				deliveryZone);
-		
+
 		
 	}
 
