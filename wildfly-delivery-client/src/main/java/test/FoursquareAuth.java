@@ -2,36 +2,43 @@ package test;
 
 import java.util.Scanner;
 
-import delegate.FoursquareAuthServicesDelegate;
+import utility.FoursquareUtility;
 import delegate.OwnerServicesBasicDelegate;
 import entities.Owner;
 import entities.embedded.Address;
+import fi.foyt.foursquare.api.FoursquareApi;
+import fi.foyt.foursquare.api.FoursquareApiException;
 import fi.foyt.foursquare.api.entities.CompleteUser;
 
 public class FoursquareAuth {
 
 	public static void main(String[] args) {
+		FoursquareApi foursquareApi = FoursquareUtility.getFoursquareApi();
 
-		System.out.println(FoursquareAuthServicesDelegate
-				.getUrlAuthentification());
+		System.out.println(foursquareApi.getAuthenticationUrl());
 		Scanner scanner = new Scanner(System.in);
 		String code = scanner.nextLine();
-		String oAuthToken = FoursquareAuthServicesDelegate
-				.confirmAuthentification(code);
+		try {
+			foursquareApi.authenticateCode(code);
 
-		CompleteUser completeUser = FoursquareAuthServicesDelegate
-				.getUserAuthenticated();
+			String oAuthToken = foursquareApi.getOAuthToken();
 
-		if (oAuthToken != null) {
-			Owner owner = new Owner(completeUser.getFirstName() + " "
-					+ completeUser.getLastName(), new Address(
-					completeUser.getHomeCity(), "", "", 0, 0),
-					completeUser.getId(), oAuthToken);
-			OwnerServicesBasicDelegate.doCrud().add(owner);
-			System.out.println("Vous êtes connecté "
-					+ completeUser.getFirstName());
+			if (oAuthToken != null) {
+				CompleteUser completeUser = foursquareApi.user("self")
+						.getResult();
 
-		} else {
+				Owner owner = new Owner(completeUser.getFirstName() + " "
+						+ completeUser.getLastName(), new Address(
+						completeUser.getHomeCity(), "", "", 0, 0),
+						completeUser.getId(), oAuthToken);
+				OwnerServicesBasicDelegate.doCrud().add(owner);
+				System.out.println("Vous êtes connecté "
+						+ completeUser.getFirstName());
+
+			} else {
+				System.out.println("Connexion est echouée");
+			}
+		} catch (FoursquareApiException e) {
 			System.out.println("Connexion est echouée");
 		}
 		scanner.close();

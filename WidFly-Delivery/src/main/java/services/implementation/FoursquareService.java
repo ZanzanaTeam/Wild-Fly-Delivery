@@ -9,48 +9,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import services.interfaces.FoursquareServiceLocal;
-import services.interfaces.FoursquareServiceRemote;
 import utility.FoursquareUtility;
 import fi.foyt.foursquare.api.FoursquareApi;
 import fi.foyt.foursquare.api.FoursquareApiException;
 import fi.foyt.foursquare.api.Result;
 import fi.foyt.foursquare.api.entities.Category;
-import fi.foyt.foursquare.api.entities.CompleteUser;
 
 /**
  * Session Bean implementation class FoursquareService
  */
 @Stateless
-public class FoursquareService implements FoursquareServiceRemote,
-		FoursquareServiceLocal {
+public class FoursquareService implements FoursquareServiceLocal {
 
 	private FoursquareApi foursquareApi;
 	private final String CATEGORY_FOOD = "4d4b7105d754a06374d81259";
 
 	public FoursquareService() {
 		foursquareApi = FoursquareUtility.getFoursquareApi();
-	}
-
-	public CompleteUser getUserAuthenticated() {
-		try {
-			return foursquareApi.user("self").getResult();
-
-		} catch (FoursquareApiException e) {
-			return null;
-		}
-	}
-
-	public String confirmAuthentification(String code) {
-		try {
-			foursquareApi.authenticateCode(code);
-			return foursquareApi.getOAuthToken();
-		} catch (FoursquareApiException e) {
-			return null; 
-		}
-	}
-
-	public String getUrlAuthentification() {
-		return foursquareApi.getAuthenticationUrl();
 	}
 
 	@Override
@@ -78,7 +53,7 @@ public class FoursquareService implements FoursquareServiceRemote,
 								icon = json.get("prefix") + cat[i].getId()
 										+ json.get("suffix");
 							} catch (JSONException e) {
-								e.printStackTrace();
+
 							}
 
 							categories.add(new entities.Category(
@@ -88,12 +63,9 @@ public class FoursquareService implements FoursquareServiceRemote,
 				}
 			} else {
 
-				System.out.println("Error occured: ");
-				System.out.println("  code: " + result.getMeta().getCode());
-				System.out
-						.println("  type: " + result.getMeta().getErrorType());
-				System.out.println("  detail: "
-						+ result.getMeta().getErrorDetail());
+				System.out.println("Error occured: "
+						+ result.getMeta().getCode());
+
 			}
 
 		} catch (FoursquareApiException e) {

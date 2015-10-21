@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -21,12 +22,14 @@ public class Owner extends Customer implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Owner(String full_name, Address address, String idFoursquare,String oAuthToken) {
+	public Owner(String full_name, Address address, String idFoursquare,
+			String oAuthToken) {
 		super(full_name, address);
 		this.idFoursquare = idFoursquare;
 		this.oAuthToken = oAuthToken;
 	}
 
+	@Column(unique = true)
 	public String getIdFoursquare() {
 		return idFoursquare;
 	}
@@ -45,6 +48,7 @@ public class Owner extends Customer implements Serializable {
 		this.restaurants = restaurants;
 	}
 
+	@Column(unique = true)
 	public String getoAuthToken() {
 		return oAuthToken;
 	}

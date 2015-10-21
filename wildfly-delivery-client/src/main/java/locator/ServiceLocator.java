@@ -42,5 +42,7 @@ public class ServiceLocator {
 		}
 		return object;
 	}
+	
+	public static Context getContext(){return context;}
 
 }
