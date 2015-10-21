@@ -32,6 +32,7 @@ public class Order implements Serializable {
 
 	private List<Payment> payments;
 	private List<ItemOrder> itemOrders;
+	private Restaurant restaurant;
 
 	public Order() {
 
@@ -129,6 +130,15 @@ public class Order implements Serializable {
 
 	public void setItemOrders(List<ItemOrder> itemOrders) {
 		this.itemOrders = itemOrders;
+	}
+
+	@ManyToOne
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 }
