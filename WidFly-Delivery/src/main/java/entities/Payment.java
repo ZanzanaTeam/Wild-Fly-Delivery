@@ -32,6 +32,7 @@ public class Payment implements Serializable {
 		super();
 		this.payementType = payementType;
 		this.amount = amount;
+		this.payementDate = new Date();
 	}
 
 	@Id
