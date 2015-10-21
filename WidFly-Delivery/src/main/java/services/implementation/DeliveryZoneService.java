@@ -1,8 +1,12 @@
 package services.implementation;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import services.interfaces.DeliveryZoneServiceRemote;
+import services.interfaces.basic.FactoryServiceLocal;
+import entities.Complaint;
+import entities.DeliveryZone;
 
 /**
  * Session Bean implementation class DeliveryZoneService
@@ -10,17 +14,18 @@ import services.interfaces.DeliveryZoneServiceRemote;
 @Stateless
 public class DeliveryZoneService implements DeliveryZoneServiceRemote {
 
-	/**
-	 * Default constructor.
-	 */
+	@EJB
+	FactoryServiceLocal factoryServiceLocal;
+
 	public DeliveryZoneService() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void assignDeliveryZone(int zoneId, int restaurantId) {
-		// TODO Auto-generated method stub
-
+	public void assignDeliveryZone(DeliveryZone deliveryZone, int restaurantId) {
+		Complaint complaint = factoryServiceLocal.getDeliveryZoneEjb().add(
+				deliveryZone);
+		
+		
 	}
 
 }

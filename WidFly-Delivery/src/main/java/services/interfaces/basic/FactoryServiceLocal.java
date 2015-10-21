@@ -23,21 +23,21 @@ public interface FactoryServiceLocal {
 
 	ServicesBasicLocal<SimpleUser> getSimpleUserEjb();
 
-	ServicesBasicRemote<Order> getOrderEjb();
+	ServicesBasicLocal<Order> getOrderEjb();
 
-	ServicesBasicRemote<Menu> getMenusEjb();
+	ServicesBasicLocal<Menu> getMenusEjb();
 
-	ServicesBasicRemote<DeliveryZone> getDeliveryZoneEjb();
+	ServicesBasicLocal<DeliveryZone> getDeliveryZoneEjb();
 
-	ServicesBasicRemote<ItemOrder> getItemOrderEjb();
+	ServicesBasicLocal<ItemOrder> getItemOrderEjb();
 
-	ServicesBasicRemote<Note> getNoteEjb();
+	ServicesBasicLocal<Note> getNoteEjb();
 
-	ServicesBasicRemote<Owner> getOwnerEjb();
+	ServicesBasicLocal<Owner> getOwnerEjb();
 
-	ServicesBasicRemote<MenuSpecification> getMenuSpecificationEjb();
+	ServicesBasicLocal<MenuSpecification> getMenuSpecificationEjb();
 
-	ServicesBasicRemote<Payment> getPayementEjb();
+	ServicesBasicLocal<Payment> getPayementEjb();
 
 	ServicesBasicLocal<Category> getCategoryEjb();
 }
