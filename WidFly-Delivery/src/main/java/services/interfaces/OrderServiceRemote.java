@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import entities.Complaint;
 import entities.Order;
+import entities.Restaurant;
 import entities.SimpleUser;
 import entities.enumeration.OrderState;
 
