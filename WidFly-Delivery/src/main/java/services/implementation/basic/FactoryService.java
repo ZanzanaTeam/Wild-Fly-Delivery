@@ -15,6 +15,7 @@ import entities.Note;
 import entities.Order;
 import entities.Owner;
 import entities.Payment;
+import entities.Restaurant;
 import entities.SimpleUser;
 
 /**
@@ -45,6 +46,8 @@ public class FactoryService implements FactoryServiceLocal {
 	ServicesBasicLocal<Payment> payement;
 	@EJB
 	ServicesBasicLocal<Category> category;
+
+	ServicesBasicLocal<Restaurant> restaurant;
 
 	public FactoryService() {
 		// TODO Auto-generated constructor stub
@@ -98,5 +101,11 @@ public class FactoryService implements FactoryServiceLocal {
 	@Override
 	public ServicesBasicLocal<Category> getCategoryEjb() {
 		return category;
+	}
+
+	@Override
+	public ServicesBasicLocal<Restaurant> getRestaurantEjb() {
+		
+		return restaurant;
 	}
 }
