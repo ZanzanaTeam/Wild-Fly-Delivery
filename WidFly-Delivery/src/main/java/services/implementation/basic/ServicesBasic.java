@@ -75,4 +75,9 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 		}
 	}
 
+	@Override
+	public T findById(String id, Class<T> type) {
+		return entityManager.find(type, id);
+	}
+
 }

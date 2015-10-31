@@ -3,11 +3,11 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -19,18 +19,17 @@ public class Customer implements Serializable {
 	private Integer id;
 	private String fullName;
 	private Address address;
-
+	
 	private static final long serialVersionUID = 1L;
 
 	private List<Order> orders;
 	private List<Note> notes;
-	
+
 	public Customer() {
 
 	}
 
 	public Customer(String fullName, Address address) {
-		super();
 		this.fullName = fullName;
 		this.address = address;
 	}
@@ -67,7 +66,7 @@ public class Customer implements Serializable {
 		this.address = address;
 	}
 
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy = "customer")
 	public List<Order> getOrders() {
 		return orders;
 	}
@@ -76,7 +75,7 @@ public class Customer implements Serializable {
 		this.orders = orders;
 	}
 
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy = "customer")
 	public List<Note> getNotes() {
 		return notes;
 	}

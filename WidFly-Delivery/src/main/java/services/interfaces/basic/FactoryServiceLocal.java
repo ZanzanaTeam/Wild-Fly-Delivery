@@ -11,6 +11,7 @@ import entities.Note;
 import entities.Order;
 import entities.Owner;
 import entities.Payment;
+import entities.Restaurant;
 import entities.SimpleUser;
 
 /**
@@ -40,4 +41,6 @@ public interface FactoryServiceLocal {
 	ServicesBasicLocal<Payment> getPayementEjb();
 
 	ServicesBasicLocal<Category> getCategoryEjb();
+	
+	ServicesBasicLocal<Restaurant> getRestaurantEjb();
 }

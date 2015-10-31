@@ -14,6 +14,8 @@ public class Owner extends Customer implements Serializable {
 
 	private String idFoursquare;
 	private String oAuthToken;
+	private String email;
+	
 	private static final long serialVersionUID = 1L;
 
 	private List<Restaurant> restaurants;
@@ -22,11 +24,12 @@ public class Owner extends Customer implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Owner(String full_name, Address address, String idFoursquare,
+	public Owner(String full_name, Address address, String email ,String idFoursquare,
 			String oAuthToken) {
 		super(full_name, address);
 		this.idFoursquare = idFoursquare;
 		this.oAuthToken = oAuthToken;
+		this.email = email;
 	}
 
 	@Column(unique = true)
@@ -55,5 +58,14 @@ public class Owner extends Customer implements Serializable {
 
 	public void setoAuthToken(String oAuthToken) {
 		this.oAuthToken = oAuthToken;
+	}
+	
+	@Column(unique = true)
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

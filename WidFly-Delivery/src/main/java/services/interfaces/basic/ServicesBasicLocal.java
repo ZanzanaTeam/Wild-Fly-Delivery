@@ -10,4 +10,5 @@ import javax.ejb.Local;
 @Local
 public interface ServicesBasicLocal<T> extends ICrud<T> {
 
+	T findById(String id , Class<T> type);
 }

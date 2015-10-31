@@ -3,7 +3,7 @@ package test;
 import java.util.Scanner;
 
 import utility.FoursquareUtility;
-import delegate.OwnerServicesBasicDelegate;
+import delegate.ServicesBasicDelegate;
 import entities.Owner;
 import entities.embedded.Address;
 import fi.foyt.foursquare.api.FoursquareApi;
@@ -29,9 +29,11 @@ public class FoursquareAuth {
 
 				Owner owner = new Owner(completeUser.getFirstName() + " "
 						+ completeUser.getLastName(), new Address(
-						completeUser.getHomeCity(), "", "", 0, 0),
-						completeUser.getId(), oAuthToken);
-				OwnerServicesBasicDelegate.doCrud().add(owner);
+						completeUser.getHomeCity(), "", "", 0, 0), completeUser
+						.getContact().getEmail(), completeUser.getId(),
+						oAuthToken);
+
+				new ServicesBasicDelegate<Owner>().doCrud().add(owner);
 				System.out.println("Vous êtes connecté "
 						+ completeUser.getFirstName());
 
