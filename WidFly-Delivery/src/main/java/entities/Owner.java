@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import entities.embedded.Address;
+import entities.special.ValidateOwnerRestaurant;
 
 @Entity
 public class Owner extends Customer implements Serializable {
@@ -19,6 +20,7 @@ public class Owner extends Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private List<Restaurant> restaurants;
+	private List<ValidateOwnerRestaurant> validateOwnerRestaurants;
 
 	public Owner() {
 		// TODO Auto-generated constructor stub
@@ -67,5 +69,14 @@ public class Owner extends Customer implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@OneToMany(mappedBy="owner")
+	public List<ValidateOwnerRestaurant> getValidateOwnerRestaurants() {
+		return validateOwnerRestaurants;
+	}
+
+	public void setValidateOwnerRestaurants(List<ValidateOwnerRestaurant> validateOwnerRestaurants) {
+		this.validateOwnerRestaurants = validateOwnerRestaurants;
 	}
 }

@@ -23,8 +23,8 @@ public class Complaint extends Restaurant  {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Complaint(String id, String name, Address address, Category category,List<Menu> menus, List<DeliveryZone> deliveryZones) {
-		super(id, name, address, category);
+	public Complaint(String id, String name, Address address, String email ,Category category,List<Menu> menus, List<DeliveryZone> deliveryZones) {
+		super(id, name, address,email, category);
 		this.menus = menus;
 		this.deliveryZones = deliveryZones;
 	}

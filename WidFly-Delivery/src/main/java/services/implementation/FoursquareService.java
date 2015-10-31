@@ -55,14 +55,14 @@ public class FoursquareService implements FoursquareServiceLocal {
 						for (int i = 0; i < cat.length; i++) {
 
 							String icon = "";
-							try {
+							/*try {
 								JSONObject json = new JSONObject(
 										cat[i].getIcon());
 								icon = json.get("prefix") + cat[i].getId()
 										+ json.get("suffix");
 							} catch (JSONException e) {
 
-							}
+							}*/
 
 							categories.add(new entities.Category(
 									cat[i].getId(), cat[i].getName(), icon));
@@ -105,12 +105,13 @@ public class FoursquareService implements FoursquareServiceLocal {
 											.getLocation().getCountry(), venue
 											.getLocation().getLat(), venue
 											.getLocation().getLng()),
+											venue.getContact().getEmail(),
 							factoryServiceLocal.getCategoryEjb().findById(
 									venue.getCategories()[0].getId(),
 									entities.Category.class));
-					System.out.println(venue.getName() +"\t"+venue.getLocation().getCity() +"\t"+venue.getContact().getPhone()+"\t"+venue.getContact().getEmail()+"\t"+venue.getContact().getFacebook());
+					//System.out.println(venue.getName() +"\t"+venue.getLocation().getCity() +"\t"+venue.getContact().getPhone()+"\t"+venue.getContact().getEmail()+"\t"+venue.getContact().getFacebook());
 					
-					//restaurants.add(restaurant);
+					restaurants.add(restaurant);
 				}
 			} else {
 				System.out.println("Error occured: "

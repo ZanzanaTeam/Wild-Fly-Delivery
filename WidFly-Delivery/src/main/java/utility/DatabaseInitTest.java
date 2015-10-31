@@ -10,6 +10,7 @@ import javax.ejb.Startup;
 
 import services.interfaces.FoursquareServiceLocal;
 import services.interfaces.basic.FactoryServiceLocal;
+import entities.Category;
 import entities.Restaurant;
 import entities.SimpleUser;
 import entities.embedded.Address;
@@ -35,6 +36,7 @@ public class DatabaseInitTest {
 				new SimpleUser("SeifAllah Mhadhbi", new Address("1", "Cartage",
 						"Tunisie", 0, 0), "25947116", Gender.Male));
 
+		addCategory();
 		addRestaurantExemple();
 
 		System.out.println("End init");
@@ -47,6 +49,13 @@ public class DatabaseInitTest {
 		for (Restaurant restaurant : restaurants) {
 			serviceLocal.getRestaurantEjb().add(restaurant);
 		}
-
+	}
+	
+	public void addCategory() {
+		List<Category> categories = foursquareLocal.findAllCategory();
+		for (Category category : categories) {
+			serviceLocal.getCategoryEjb().add(category);
+		}
+		System.out.println("-- end synchronise category");
 	}
 }
