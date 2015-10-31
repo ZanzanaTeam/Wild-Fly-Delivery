@@ -1,6 +1,5 @@
 package services.implementation.basic;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -79,11 +78,6 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 		}
 	}
 
-	@Override
-	public T findById(String id, Class<T> type) {
-		return entityManager.find(type, id);
-	}
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public T findOneBy(Map where,  Class<T> type) {
@@ -97,13 +91,12 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 
 				  Object key   = iterator.next();
 				  Object value = where.get(key);
-				condition += "e."+key +" =:"+ key; 
+				condition += key +" =:"+ key; 
 				while(iterator.hasNext()){
 				  key   = iterator.next();
 				  value = where.get(key);
-				  condition += "and e."+ key +" =:"+ key;
+				  condition += "and "+ key +" =:"+ key;
 				}
-				jpql += condition;
 				query = entityManager.createQuery(jpql);
 				
 				for(Object key2 : where.keySet()) {
@@ -183,39 +176,38 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 	@Override
 	public List<T> findBy(Map where, Class<T> type) {
 
-		List<T> lists = new ArrayList<>() ;
+		List<T> lists = null;
 		
 		try {
-			String jpql = "select e from " + type.getSimpleName() + " e ";
+			String jpql = "select e from " + type.getSimpleName() + " e";
 			String condition = "";
-			
-			Query query;
+			String order = "";
+
+			Query query = entityManager.createQuery(jpql);
 			if ( where.size() >0 ){
-				condition = " where ";
+				condition = "where ";
 				Iterator iterator = where.keySet().iterator();
 
 				  Object key   = iterator.next();
 				  Object value = where.get(key);
-				condition += " e."+key +" =:"+ key; 
+				condition += key +" =:"+ key; 
 				while(iterator.hasNext()){
 				  key   = iterator.next();
 				  value = where.get(key);
-				  condition += " and e."+ key +" =:"+ key;
+				  condition += "and "+ key +" =:"+ key;
 				}
 				
 				jpql += condition;
-				
-				System.out.println(jpql);
-				
 				query = entityManager.createQuery(jpql);
 				
 				for(Object key2 : where.keySet()) {
 					Object value2 = where.get(key2);
 					query.setParameter((String) key2, value2);
 				}
-				lists = query.getResultList();
 			}
 			
+			lists = entityManager.createQuery(jpql).getResultList();
+
 		} catch (Exception ee) {
 
 		}
