@@ -200,7 +200,9 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 				while(iterator.hasNext()){
 				  key   = iterator.next();
 				  value = where.get(key);
-				  condition += " and e."+ key +" =:"+ key;
+				  String param = (String) key;
+				  if(param.contains(".")){param = param.split(".")[0];}
+				  condition += " and e."+ key +" =:"+param;
 				}
 				
 				jpql += condition;
@@ -211,13 +213,15 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 				
 				for(Object key2 : where.keySet()) {
 					Object value2 = where.get(key2);
-					query.setParameter((String) key2, value2);
+					String param = (String) key;
+					if(param.contains(".")){key2 = param.split(".")[0];}
+					query.setParameter((String)key2, value2);
 				}
 				lists = query.getResultList();
 			}
 			
 		} catch (Exception ee) {
-
+			System.out.println(ee.toString());
 		}
 
 		return lists;
@@ -244,7 +248,8 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 				while(iterator.hasNext()){
 				  key   = iterator.next();
 				  value = where.get(key);
-				  condition += "and "+ key +" =:"+ key;
+				 
+				  condition += "and "+ key +" =:"+key;
 				}
 				jpql += condition;
 				query = entityManager.createQuery(jpql);

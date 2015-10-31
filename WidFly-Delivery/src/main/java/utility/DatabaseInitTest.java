@@ -13,9 +13,6 @@ import services.interfaces.RestaurantServicesLocal;
 import services.interfaces.basic.FactoryServiceLocal;
 import entities.Category;
 import entities.Restaurant;
-import entities.SimpleUser;
-import entities.embedded.Address;
-import entities.enumeration.Gender;
 
 @Singleton
 @LocalBean
@@ -26,25 +23,25 @@ public class DatabaseInitTest {
 	FactoryServiceLocal serviceLocal;
 	@EJB
 	FoursquareServiceLocal foursquareLocal;
-	
+
 	@EJB
 	RestaurantServicesLocal restaurant;
 
 	@PostConstruct
 	public void initDb() {
-		System.out.println("Begin init");
-		serviceLocal.getSimpleUserEjb().add(
-				new SimpleUser("jendoubi", new Address("61490", "Tunis",
-						"Tunisie", 0, 0), "25497002", Gender.Male));
-		serviceLocal.getSimpleUserEjb().add(
-				new SimpleUser("SeifAllah Mhadhbi", new Address("1", "Cartage",
-						"Tunisie", 0, 0), "25947116", Gender.Male));
+		/*
+		 * System.out.println("Begin init");
+		 * serviceLocal.getSimpleUserEjb().add( new SimpleUser("jendoubi", new
+		 * Address("61490", "Tunis", "Tunisie", 0, 0), "25497002",
+		 * Gender.Male)); serviceLocal.getSimpleUserEjb().add( new
+		 * SimpleUser("SeifAllah Mhadhbi", new Address("1", "Cartage",
+		 * "Tunisie", 0, 0), "25947116", Gender.Male));
+		 */
+		// addCategory();
+		// addRestaurantExemple();
 
-		addCategory();
-		addRestaurantExemple();
+		System.out.println(restaurant.verifAndAssignRestaurant("wgShSxDp", 3));
 
-		System.out.println(restaurant.verifCode("wgShSxDp", 3));
-		
 		System.out.println("End init");
 	}
 
@@ -56,7 +53,7 @@ public class DatabaseInitTest {
 			serviceLocal.getRestaurantEjb().add(restaurant);
 		}
 	}
-	
+
 	public void addCategory() {
 		List<Category> categories = foursquareLocal.findAllCategory();
 		for (Category category : categories) {

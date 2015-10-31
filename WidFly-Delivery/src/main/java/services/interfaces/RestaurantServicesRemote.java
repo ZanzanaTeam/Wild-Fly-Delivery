@@ -7,5 +7,5 @@ public interface RestaurantServicesRemote {
 	
 	void demandeOwner(String restaurantId , Integer OwnerId);
 	
-	Boolean verifCode(String code, Integer IdOwner);
+	Boolean verifAndAssignRestaurant(String code, Integer IdOwner);
 }
