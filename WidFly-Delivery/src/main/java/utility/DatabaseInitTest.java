@@ -9,6 +9,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
 import services.interfaces.FoursquareServiceLocal;
+import services.interfaces.RestaurantServicesLocal;
 import services.interfaces.basic.FactoryServiceLocal;
 import entities.Category;
 import entities.Restaurant;
@@ -25,6 +26,9 @@ public class DatabaseInitTest {
 	FactoryServiceLocal serviceLocal;
 	@EJB
 	FoursquareServiceLocal foursquareLocal;
+	
+	@EJB
+	RestaurantServicesLocal restaurant;
 
 	@PostConstruct
 	public void initDb() {
@@ -39,6 +43,8 @@ public class DatabaseInitTest {
 		addCategory();
 		addRestaurantExemple();
 
+		System.out.println(restaurant.verifCode("wgShSxDp", 3));
+		
 		System.out.println("End init");
 	}
 

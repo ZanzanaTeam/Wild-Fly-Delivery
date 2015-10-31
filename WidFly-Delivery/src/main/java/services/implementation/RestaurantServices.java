@@ -1,6 +1,8 @@
 package services.implementation;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -37,4 +39,13 @@ public class RestaurantServices implements RestaurantServicesRemote,
 		
 	}
 
+	public Boolean verifCode(String code , Integer IdOwner){
+		
+		Owner owner = factoryServiceLocal.getOwnerEjb().findById(IdOwner, Owner.class);
+		Map<String, Object> where = new HashMap<String, Object>();
+		where.put("code", code);
+		where.put("Owner", owner);
+		return factoryServiceLocal.getValidateOwnerRestaurantEjb().findBy(where, ValidateOwnerRestaurant.class).isEmpty();
+		
+	}
 }
