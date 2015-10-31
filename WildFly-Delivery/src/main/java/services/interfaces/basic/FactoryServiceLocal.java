@@ -13,7 +13,6 @@ import entities.Owner;
 import entities.Payment;
 import entities.Restaurant;
 import entities.SimpleUser;
-import entities.special.ValidateOwnerRestaurant;
 
 /**
  * @author MedAymen
@@ -44,6 +43,5 @@ public interface FactoryServiceLocal {
 	ServicesBasicLocal<Category> getCategoryEjb();
 	
 	ServicesBasicLocal<Restaurant> getRestaurantEjb();
-	
-	ServicesBasicLocal<ValidateOwnerRestaurant> getValidateOwnerRestaurantEjb();
+
 }

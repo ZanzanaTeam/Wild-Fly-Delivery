@@ -78,11 +78,6 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 		}
 	}
 
-	@Override
-	public T findById(String id, Class<T> type) {
-		return entityManager.find(type, id);
-	}
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public T findOneBy(Map where,  Class<T> type) {
@@ -102,7 +97,6 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 				  value = where.get(key);
 				  condition += "and "+ key +" =:"+ key;
 				}
-				jpql += condition;
 				query = entityManager.createQuery(jpql);
 				
 				for(Object key2 : where.keySet()) {

@@ -17,7 +17,6 @@ import entities.Owner;
 import entities.Payment;
 import entities.Restaurant;
 import entities.SimpleUser;
-import entities.special.ValidateOwnerRestaurant;
 
 /**
  * @author MedAymen
@@ -48,11 +47,7 @@ public class FactoryService implements FactoryServiceLocal {
 	@EJB
 	ServicesBasicLocal<Category> category;
 
-	@EJB
 	ServicesBasicLocal<Restaurant> restaurant;
-	
-	@EJB
-	ServicesBasicLocal<ValidateOwnerRestaurant> validateOwnerRestaurant;
 
 	public FactoryService() {
 		// TODO Auto-generated constructor stub
@@ -110,12 +105,7 @@ public class FactoryService implements FactoryServiceLocal {
 
 	@Override
 	public ServicesBasicLocal<Restaurant> getRestaurantEjb() {
-
+		
 		return restaurant;
-	}
-
-	@Override
-	public ServicesBasicLocal<ValidateOwnerRestaurant> getValidateOwnerRestaurantEjb() {
-		return validateOwnerRestaurant;
 	}
 }

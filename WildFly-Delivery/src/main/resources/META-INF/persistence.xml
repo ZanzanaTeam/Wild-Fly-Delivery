@@ -19,7 +19,7 @@
 	<class>entities.embedded.Address</class>
 	<class>entities.embedded.ItemOrderId</class>
 	<class>entities.embedded.NoteId</class>
-	<class>entities.special.ValidateOwnerRestaurant</class>	
+	
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.show_sql" value="true"/>

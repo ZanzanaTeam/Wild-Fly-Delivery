@@ -8,7 +8,6 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
-import services.implementation.basic.ServicesBasic;
 import services.interfaces.MenuServiceRemote;
 import services.interfaces.basic.FactoryServiceLocal;
 import entities.Menu;
@@ -19,7 +18,7 @@ import entities.Restaurant;
  * Session Bean implementation class MenuService
  */
 @Stateless
-public class MenuService extends ServicesBasic implements MenuServiceRemote {
+public class MenuService implements MenuServiceRemote {
 
 	@EJB
 	FactoryServiceLocal serviceLocal;
