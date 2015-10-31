@@ -4,14 +4,13 @@
   <artifactId>WidFly-Delivery</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>ejb</packaging>
-
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
 	<dependencies>
-		<dependency>
+		<dependency> 
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
@@ -60,7 +59,7 @@
 				<version>1.0.2.Final</version>
 				<configuration>
 					<filename>${project.artifactId}.jar</filename>
-					<hostname>localhost</hostname>
+					<hostname>192.168.75.209</hostname>
 					<username>admin</username>
 					<password>wildflyadmin</password>
 					<port>19990</port>

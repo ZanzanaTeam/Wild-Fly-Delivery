@@ -46,6 +46,7 @@ public class FactoryService implements FactoryServiceLocal {
 	ServicesBasicLocal<Payment> payement;
 	@EJB
 	ServicesBasicLocal<Category> category;
+
 	@EJB
 	ServicesBasicLocal<Restaurant> restaurant;
 
@@ -105,6 +106,7 @@ public class FactoryService implements FactoryServiceLocal {
 
 	@Override
 	public ServicesBasicLocal<Restaurant> getRestaurantEjb() {
+
 		return restaurant;
 	}
 }

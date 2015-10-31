@@ -1,10 +1,15 @@
 package services.implementation;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
 
 import services.interfaces.MenuServiceRemote;
+import services.interfaces.basic.FactoryServiceLocal;
 import entities.Menu;
 import entities.Order;
 import entities.Restaurant;
@@ -15,6 +20,11 @@ import entities.Restaurant;
 @Stateless
 public class MenuService implements MenuServiceRemote {
 
+	@EJB
+	FactoryServiceLocal serviceLocal;
+
+	private EntityManager entityManager;
+
 	/**
 	 * Default constructor.
 	 */
@@ -23,27 +33,35 @@ public class MenuService implements MenuServiceRemote {
 	}
 
 	@Override
-	public void assignMenu(int menuId, int restaurantId) {
+	public Boolean assignMenu(int menuId, int restaurantId) {
+		Menu menu = serviceLocal.getMenusEjb().findById(menuId, Menu.class);
 
-	}
-
-	@Override
-	public void addMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		
+		Restaurant complaint = serviceLocal.getRestaurantEjb().findById(
+				restaurantId, Restaurant.class);
+		if (menu != null && complaint != null) {
+			menu.setComplaint(complaint);
+			serviceLocal.getMenusEjb().update(menu);
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public List<Menu> finMenuByRestaurant(Restaurant restaurant) {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String, Object> where = new HashMap();
+		where.put("restaurant ", restaurant);
+		List<Menu> list = serviceLocal.getMenusEjb().findBy(where, Menu.class);
+
+		return list;
 	}
 
 	@Override
 	public List<Menu> finMenuByOrder(Order order) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	
+		Map<String, Object> where = new HashMap();
+		where.put("order ", order);
+		List<Menu> list = serviceLocal.getMenusEjb().findBy(where, Menu.class);
+
+		return list;
+	}
 }
