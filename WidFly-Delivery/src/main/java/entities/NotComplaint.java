@@ -18,8 +18,8 @@ public class NotComplaint extends Restaurant {
 		// TODO Auto-generated constructor stub
 	}
 
-	public NotComplaint(String id, String name, Address address, Category category,String itinerary) {
-		super(id, name, address, category);
+	public NotComplaint(String id, String name, Address address,String email , Category category,String itinerary) {
+		super(id, name, address,email, category);
 		this.itinerary = itinerary;
 	}
 

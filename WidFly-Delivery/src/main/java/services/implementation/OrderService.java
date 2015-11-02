@@ -37,7 +37,7 @@ public class OrderService implements OrderServiceRemote {
 	}
 
 	@Override
-	public List<Order> finOrderByCustomer(SimpleUser simpleUser) {
+	public List<Order> findOrderByCustomer(SimpleUser simpleUser) {
 		Map<String, Object> where = new HashMap();
 		where.put("customer", simpleUser);
 		List<Order> list = serviceLocal.getOrderEjb().findBy(where, Order.class);
@@ -47,7 +47,7 @@ public class OrderService implements OrderServiceRemote {
 	}
 
 	@Override
-	public List<Order> finOrderByRestaurant(Complaint complaint) {
+	public List<Order> findOrderByRestaurant(Complaint complaint) {
 		Map<String, Object> where = new HashMap();
 		where.put("restaurant", complaint);
 		List<Order> list = serviceLocal.getOrderEjb().findBy(where, Order.class);

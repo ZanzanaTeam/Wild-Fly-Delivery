@@ -3,6 +3,7 @@
         <dependencies>
             <module name="fi.foyt" />
             <module name="org.json" />
+            <module name="commons-lang" />
         </dependencies>
     </deployment>
 </jboss-deployment-structure>

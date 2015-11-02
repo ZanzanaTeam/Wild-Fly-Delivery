@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class Customer implements Serializable {
 	private Integer id;
 	private String fullName;
 	private Address address;
-
+	
 	private static final long serialVersionUID = 1L;
 
 	private List<Order> orders;
@@ -29,7 +30,6 @@ public class Customer implements Serializable {
 	}
 
 	public Customer(String fullName, Address address) {
-		super();
 		this.fullName = fullName;
 		this.address = address;
 	}

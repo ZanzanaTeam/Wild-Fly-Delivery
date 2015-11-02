@@ -1,5 +1,6 @@
 package services.implementation.basic;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -78,6 +79,11 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 		}
 	}
 
+	@Override
+	public T findById(String id, Class<T> type) {
+		return entityManager.find(type, id);
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public T findOneBy(Map where,  Class<T> type) {
@@ -91,12 +97,13 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 
 				  Object key   = iterator.next();
 				  Object value = where.get(key);
-				condition += key +" =:"+ key; 
+				condition += "e."+key +" =:"+ key; 
 				while(iterator.hasNext()){
 				  key   = iterator.next();
 				  value = where.get(key);
-				  condition += "and "+ key +" =:"+ key;
+				  condition += "and e."+ key +" =:"+ key;
 				}
+				jpql += condition;
 				query = entityManager.createQuery(jpql);
 				
 				for(Object key2 : where.keySet()) {
@@ -176,40 +183,45 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 	@Override
 	public List<T> findBy(Map where, Class<T> type) {
 
-		List<T> lists = null;
+		List<T> lists = new ArrayList<>() ;
 		
 		try {
-			String jpql = "select e from " + type.getSimpleName() + " e";
+			String jpql = "select e from " + type.getSimpleName() + " e ";
 			String condition = "";
-			String order = "";
-
-			Query query = entityManager.createQuery(jpql);
+			
+			Query query;
 			if ( where.size() >0 ){
-				condition = "where ";
+				condition = " where ";
 				Iterator iterator = where.keySet().iterator();
 
 				  Object key   = iterator.next();
 				  Object value = where.get(key);
-				condition += key +" =:"+ key; 
+				condition += " e."+key +" =:"+ key; 
 				while(iterator.hasNext()){
 				  key   = iterator.next();
 				  value = where.get(key);
-				  condition += "and "+ key +" =:"+ key;
+				  String param = (String) key;
+				  if(param.contains(".")){param = param.split(".")[0];}
+				  condition += " and e."+ key +" =:"+param;
 				}
 				
 				jpql += condition;
+				
+				System.out.println(jpql);
+				
 				query = entityManager.createQuery(jpql);
 				
 				for(Object key2 : where.keySet()) {
 					Object value2 = where.get(key2);
-					query.setParameter((String) key2, value2);
+					String param = (String) key;
+					if(param.contains(".")){key2 = param.split(".")[0];}
+					query.setParameter((String)key2, value2);
 				}
+				lists = query.getResultList();
 			}
 			
-			lists = entityManager.createQuery(jpql).getResultList();
-
 		} catch (Exception ee) {
-
+			System.out.println(ee.toString());
 		}
 
 		return lists;
@@ -236,7 +248,8 @@ public class ServicesBasic<T> implements ServicesBasicRemote<T>,ServicesBasicLoc
 				while(iterator.hasNext()){
 				  key   = iterator.next();
 				  value = where.get(key);
-				  condition += "and "+ key +" =:"+ key;
+				 
+				  condition += "and "+ key +" =:"+key;
 				}
 				jpql += condition;
 				query = entityManager.createQuery(jpql);
