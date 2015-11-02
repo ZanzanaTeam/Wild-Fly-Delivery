@@ -8,7 +8,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import entities.embedded.Address;
 import entities.special.ValidateOwnerRestaurant;
@@ -20,7 +23,8 @@ public class Restaurant implements Serializable {
 	private String name;
 	private Address address;
 	private String email;
-
+	private Float distance;
+	
 	private static final long serialVersionUID = 1L;
 
 	private Category category;
@@ -116,6 +120,15 @@ public class Restaurant implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Transient
+	public Float getDistance() {
+		return distance;
+	}
+
+	public void setDistance(Float distance) {
+		this.distance = distance;
 	}
 
 }

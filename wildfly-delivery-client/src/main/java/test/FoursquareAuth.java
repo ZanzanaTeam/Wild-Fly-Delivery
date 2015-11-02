@@ -17,6 +17,7 @@ public class FoursquareAuth {
 
 		System.out.println(foursquareApi.getAuthenticationUrl());
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("Entrez votre code de passage : ");
 		String code = scanner.nextLine();
 		try {
 			foursquareApi.authenticateCode(code);

@@ -1,11 +1,19 @@
 package services.interfaces;
 
+import java.util.List;
+
 import javax.ejb.Remote;
+
+import entities.Restaurant;
 
 @Remote
 public interface RestaurantServicesRemote {
 	
-	void demandeOwner(String restaurantId , Integer OwnerId);
+	Boolean demandeOwner(String restaurantId , Integer OwnerId);
 	
 	Boolean verifAndAssignRestaurant(String code, Integer IdOwner);
+	
+	List<Restaurant> findByName(String name);
+	
+	List<Restaurant> findByDistance(Float alt , Float lng,int distance);
 }

@@ -40,7 +40,7 @@ public class DatabaseInitTest {
 		// addCategory();
 		// addRestaurantExemple();
 
-		System.out.println(restaurant.verifAndAssignRestaurant("wgShSxDp", 3));
+		//System.out.println(restaurant.verifAndAssignRestaurant("wgShSxDp", 3));
 
 		System.out.println("End init");
 	}
