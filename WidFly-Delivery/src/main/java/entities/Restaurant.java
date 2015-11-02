@@ -1,6 +1,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,10 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
 
 import entities.embedded.Address;
 import entities.special.ValidateOwnerRestaurant;
@@ -24,13 +23,16 @@ public class Restaurant implements Serializable {
 	private Address address;
 	private String email;
 	private Float distance;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	private Category category;
 	private Owner owner;
 	private List<Order> orders;
 	private List<ValidateOwnerRestaurant> ownerRestaurants;
+
+	private List<Menu> menus = new ArrayList<Menu>();
+	private List<DeliveryZone> deliveryZones = new ArrayList<DeliveryZone>();
 
 	public Restaurant() {
 		// TODO Auto-generated constructor stub
@@ -48,7 +50,7 @@ public class Restaurant implements Serializable {
 	@Override
 	public String toString() {
 		return "Restaurant [id=" + id + ", name=" + name + ", address="
-				+ address + ", category=" + category + "]";
+				+ address + ", category=" + category + "]\n";
 	}
 
 	@Id
@@ -129,6 +131,24 @@ public class Restaurant implements Serializable {
 
 	public void setDistance(Float distance) {
 		this.distance = distance;
+	}
+
+	@OneToMany(mappedBy = "complaint")
+	public List<Menu> getMenus() {
+		return menus;
+	}
+
+	public void setMenus(List<Menu> menus) {
+		this.menus = menus;
+	}
+
+	@OneToMany(mappedBy = "complaint")
+	public List<DeliveryZone> getDeliveryZones() {
+		return deliveryZones;
+	}
+
+	public void setDeliveryZones(List<DeliveryZone> deliveryZones) {
+		this.deliveryZones = deliveryZones;
 	}
 
 }

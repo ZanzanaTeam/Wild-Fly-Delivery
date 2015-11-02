@@ -106,7 +106,7 @@ public class RestaurantServices implements RestaurantServicesRemote,
 	@Override
 	public List<Restaurant> findByName(String name) {
 
-		String jpql = "select * from Restaurant e where e.name LIKE :param";
+		String jpql = "select e from Restaurant e where e.name LIKE :param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", "%" + name + "%");
 		return query.getResultList();
@@ -114,13 +114,13 @@ public class RestaurantServices implements RestaurantServicesRemote,
 	}
 
 	@Override
-	public List<Restaurant> findByDistance(Float alt, Float lng, int distance) {
-		String sql = "SELECT *,(((acos(sin((" + alt + "*pi()/180)) *"
-				+ "sin((`altitude`*pi()/180))+cos((" + alt + "*pi()/180)) * "
-				+ "cos((`altitude`*pi()/180)) * cos(((" + lng
-				+ "- `longitude`)* " + " pi()/180))))*180/pi())*60*2.133"
-				+ " ) as distance " + "FROM restaurant" + "HAVING distance <= "
-				+ distance + "";
+	public List<Restaurant> findByDistance(Double alt, Double lng, int distance) {
+		String sql = "SELECT * ,(((acos(sin((" + alt + "*pi()/180)) * "
+				+ " sin((`altitude`*pi()/180))+cos(( " + alt + "*pi()/180)) * "
+				+ " cos((`altitude`*pi()/180)) * cos(((" + lng
+				+ " - `longitude`)* " + " pi()/180))))*180/pi())*60*2.133 "
+				+ " ) as distance " + " FROM restaurant "
+				+ "HAVING distance <= " + distance + "";
 
 		Query query = entityManager.createNativeQuery(sql, Restaurant.class);
 		return query.getResultList();

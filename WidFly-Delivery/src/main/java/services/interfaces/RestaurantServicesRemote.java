@@ -15,5 +15,5 @@ public interface RestaurantServicesRemote {
 	
 	List<Restaurant> findByName(String name);
 	
-	List<Restaurant> findByDistance(Float alt , Float lng,int distance);
+	List<Restaurant> findByDistance(Double alt , Double lng,int distance);
 }

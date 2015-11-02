@@ -26,7 +26,7 @@ public class RestaurantServiceDelegate {
 		return getProxy().findByName(name);
 	}
 	
-	public List<Restaurant> findByDistance(Float alt , Float lng , int distance){
+	public List<Restaurant> findByDistance(Double alt , Double lng , int distance){
 		return getProxy().findByDistance(alt, lng, distance);
 	}
 }
