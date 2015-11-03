@@ -10,10 +10,10 @@ import entities.Restaurant;
 
 @Remote
 public interface MenuServiceRemote {
-	Boolean assignMenu(int menuId, int restaurantId);
+	Boolean assignMenu(Menu menu, String restaurantId);
 
-	List<Menu> finMenuByRestaurant(Restaurant restaurant);
+	List<Menu> findMenuByRestaurant(String restaurantId);
 
-	List<Menu> finMenuByOrder(Order order);
+	List<Menu> findMenuByOrder(Order order);
 
 }

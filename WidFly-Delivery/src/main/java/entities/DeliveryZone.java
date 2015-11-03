@@ -21,7 +21,7 @@ public class DeliveryZone implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Complaint complaint; 
+	private Restaurant complaint; 
 	
 	public DeliveryZone() {
 	}
@@ -105,12 +105,12 @@ public class DeliveryZone implements Serializable {
 	}
 	
 	@ManyToOne
-	public Complaint getComplaint() {
+	public Restaurant getComplaint() {
 		return complaint;
 	}
 
 
-	public void setComplaint(Complaint complaint) {
+	public void setComplaint(Restaurant complaint) {
 		this.complaint = complaint;
 	}
 

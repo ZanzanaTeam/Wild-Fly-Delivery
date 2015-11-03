@@ -6,7 +6,7 @@ import delegate.RestaurantServiceDelegate;
 
 public class TestDemandeOwner {
 
-	public static Integer OWNER_ID = 6;
+	public static Integer OWNER_ID = 9;
 	public static String RESTAURANT_ID = "4b52d9a0f964a5203f8927e3";//"4b52d9a0f964a5203f8927e3";
 
 	public static void main(String[] args) {

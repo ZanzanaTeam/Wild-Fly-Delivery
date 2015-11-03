@@ -33,15 +33,16 @@ public class DatabaseInitTest {
 	@PostConstruct
 	public void initDb() {
 		
-//		  System.out.println("Begin init");
-//		  serviceLocal.getSimpleUserEjb().add( new SimpleUser("jendoubi", new
-//		  Address("61490", "Tunis", "Tunisie", 0, 0), "25497002",
-//		  Gender.Male)); serviceLocal.getSimpleUserEjb().add( new
-//		  SimpleUser("SeifAllah Mhadhbi", new Address("1", "Cartage",
-//		  "Tunisie", 0, 0), "25947116", Gender.Male));
-//		 
-//		 addCategory();
-//		 addRestaurantExemple();
+//		System.out.println("Begin init");
+//		serviceLocal.getSimpleUserEjb().add(
+//				new SimpleUser("jendoubi", new Address("61490", "Tunis",
+//						"Tunisie", 0, 0), "25497002", Gender.Male));
+//		serviceLocal.getSimpleUserEjb().add(
+//				new SimpleUser("SeifAllah Mhadhbi", new Address("1", "Cartage",
+//						"Tunisie", 0, 0), "25947116", Gender.Male));
+//
+//		addCategory();
+//		addRestaurantExemple();
 
 		//System.out.println(restaurant.verifAndAssignRestaurant("wgShSxDp", 3));
 
