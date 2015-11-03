@@ -48,9 +48,11 @@ public class RestaurantServices implements RestaurantServicesRemote,
 		String jpql = "select e from ValidateOwnerRestaurant e where e.restaurant.id =:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", restaurantId);
-		ValidateOwnerRestaurant ownerRestaurant = (ValidateOwnerRestaurant) query
-				.getSingleResult();
-
+		ValidateOwnerRestaurant ownerRestaurant = null;
+		try {
+			ownerRestaurant = (ValidateOwnerRestaurant) query.getSingleResult();
+		} catch (Exception ee) {
+		}
 		String code = "";
 		if (ownerRestaurant == null) {
 			code = SendMail.generateCode();

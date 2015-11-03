@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -86,7 +87,7 @@ public class Menu implements Serializable {
 		this.itemOrders = itemOrders;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)
 	public Restaurant getComplaint() {
 		return complaint;
 	}
