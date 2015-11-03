@@ -7,10 +7,13 @@ import java.util.Map;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import services.implementation.basic.ServicesBasic;
 import services.interfaces.MenuServiceRemote;
 import services.interfaces.basic.FactoryServiceLocal;
+import entities.Complaint;
 import entities.Menu;
 import entities.Order;
 import entities.Restaurant;
@@ -24,7 +27,8 @@ public class MenuService extends ServicesBasic implements MenuServiceRemote {
 	@EJB
 	FactoryServiceLocal serviceLocal;
 
-	private EntityManager entityManager;
+	@PersistenceContext
+	EntityManager entityManager;
 
 	/**
 	 * Default constructor.
@@ -34,12 +38,11 @@ public class MenuService extends ServicesBasic implements MenuServiceRemote {
 	}
 
 	@Override
-	public Boolean assignMenu(int menuId, int restaurantId) {
-		Menu menu = serviceLocal.getMenusEjb().findById(menuId, Menu.class);
+	public Boolean assignMenu(Menu menu, String restaurantId) {
 
 		Restaurant complaint = serviceLocal.getRestaurantEjb().findById(
 				restaurantId, Restaurant.class);
-		if (menu != null && complaint != null) {
+		if (complaint != null && complaint instanceof Complaint) {
 			menu.setComplaint(complaint);
 			serviceLocal.getMenusEjb().update(menu);
 			return true;
@@ -48,16 +51,23 @@ public class MenuService extends ServicesBasic implements MenuServiceRemote {
 	}
 
 	@Override
-	public List<Menu> finMenuByRestaurant(Restaurant restaurant) {
-		Map<String, Object> where = new HashMap();
-		where.put("restaurant ", restaurant);
-		List<Menu> list = serviceLocal.getMenusEjb().findBy(where, Menu.class);
+	public List<Menu> findMenuByRestaurant(String restaurantId) {
 
-		return list;
+		Restaurant complaint = serviceLocal.getRestaurantEjb().findById(
+				restaurantId, Restaurant.class);
+		if (complaint != null && complaint instanceof Complaint) {
+			String jpql = "select e from Menu e where e.complaint.id =:param";
+			Query query = entityManager.createQuery(jpql);
+
+			query.setParameter("param", restaurantId);
+			return query.getResultList();
+		}
+
+		return null;
 	}
 
 	@Override
-	public List<Menu> finMenuByOrder(Order order) {
+	public List<Menu> findMenuByOrder(Order order) {
 
 		Map<String, Object> where = new HashMap();
 		where.put("order ", order);
