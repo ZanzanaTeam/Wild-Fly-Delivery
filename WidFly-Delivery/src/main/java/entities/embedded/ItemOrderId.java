@@ -12,12 +12,12 @@ public class ItemOrderId implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer menuId;
-	private Integer orderId;
+	private String orderId;
 	public ItemOrderId() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ItemOrderId(Integer menuId, Integer orderId) {
+	public ItemOrderId(Integer menuId, String orderId) {
 		this.menuId = menuId;
 		this.orderId = orderId;
 	}
@@ -35,11 +35,11 @@ public class ItemOrderId implements Serializable {
 		this.menuId = menuId;
 	}
 
-	public Integer getOrderId() {
+	public String getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(Integer orderId) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 

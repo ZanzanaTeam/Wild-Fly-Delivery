@@ -20,7 +20,7 @@ import entities.enumeration.OrderState;
 @Table(name = "T_Order")
 public class Order implements Serializable {
 
-	private Integer id;
+	private String id;
 	private Date orderDate;
 	private Address locationDelivery;
 	private OrderState orderState;
@@ -38,9 +38,10 @@ public class Order implements Serializable {
 
 	}
 
-	public Order(Date orderDate, Address locationDelivery,
+	public Order(String id, Date orderDate, Address locationDelivery,
 			OrderState orderState, DeliveryType livraisonType) {
 		super();
+		this.id = id;
 		this.orderDate = orderDate;
 		this.locationDelivery = locationDelivery;
 		this.orderState = orderState;
@@ -55,12 +56,11 @@ public class Order implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
