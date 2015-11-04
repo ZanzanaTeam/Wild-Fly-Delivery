@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
+import modele.ModeleOrder;
 import entities.Complaint;
 import entities.Order;
 import entities.Restaurant;
@@ -15,8 +16,9 @@ public interface OrderServiceRemote {
 
 	void changeState(OrderState orderState);
 
-	List<Order> findOrderByRestaurant(Complaint complaint);
+	List<ModeleOrder> findOrderByRestaurant(String complaint);
 
-	List<Order> findOrderByCustomer(SimpleUser simpleUser);
+	List<Order> findOrderByCustomer(Integer simpleUser);
 
+	Double CalculTotalOrder(String orderId);
 }

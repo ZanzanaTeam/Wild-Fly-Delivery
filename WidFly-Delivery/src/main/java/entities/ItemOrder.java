@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -66,7 +67,7 @@ public class ItemOrder implements Serializable {
 		this.menu = menu;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name="orderId" , referencedColumnName="id" , updatable=false, insertable = false)
 	public Order getOrder() {
 		return order;

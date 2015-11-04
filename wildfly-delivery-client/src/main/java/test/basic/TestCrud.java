@@ -17,6 +17,7 @@ public class TestCrud {
 				new SimpleUser("SeifAllah Mhadhbi", new Address("1", "Cartage",
 						"Tunisie", 0, 0), "75947116", Gender.Male));
 
+		System.out.println("Menu = " );
 	}
 
 }
