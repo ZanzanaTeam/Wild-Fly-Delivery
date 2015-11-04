@@ -19,4 +19,5 @@ public interface OrderServiceRemote {
 
 	List<Order> findOrderByCustomer(SimpleUser simpleUser);
 
+	
 }

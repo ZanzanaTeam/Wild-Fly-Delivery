@@ -7,7 +7,7 @@ import entities.Menu;
 
 public class AddDeliveryZoneToRestaurant {
 
-	public static String RESTAURANT = "4b52d9a0f964a5203f8927e3";
+	public static String RESTAURANT = "55e0db4a498e273c7595acbe";
 
 	public static void main(String[] args) {
 
