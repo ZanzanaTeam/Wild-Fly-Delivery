@@ -31,13 +31,13 @@ public class TestAssignMenuToItemOrder {
 		ItemOrder itemOrder = new ItemOrder(new Menu(), new Order(), 1);
 		List<Menu> lMenu = menudelegate.findMenuByRestaurant(restaurantId);
 		Menu menu = lMenu.get(1);
-		Order order = new Order(null, new Address(), null,null);
-		
-		itemOrder.setMenu(menu);
-		
-		new ServicesBasicDelegate<ItemOrder>().doCrud().add(itemOrder);
-		
-		delegate.assignMenuToItemOrder(itemOrder, menu.getId());
+//		Order order = new Order(null, new Address(), null,null);
+//		
+//		itemOrder.setMenu(menu);
+//		
+//		new ServicesBasicDelegate<ItemOrder>().doCrud().add(itemOrder);
+//		
+//		delegate.assignMenuToItemOrder(itemOrder, menu.getId());
 		
 		System.out.println("C Bon");
 	}

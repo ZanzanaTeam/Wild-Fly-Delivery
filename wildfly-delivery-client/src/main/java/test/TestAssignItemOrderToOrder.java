@@ -20,7 +20,7 @@ public class TestAssignItemOrderToOrder {
 
 		Menu menu = new ServicesBasicDelegate<Menu>().doCrud().findById(1,Menu.class);
 		ItemOrder itemorder = new ItemOrder(menu, order, 54);
-		delegate.assignItemToOrderToMenu(itemorder, order.getId(), menu.getId());
+		//delegate.assignItemToOrderToMenu(itemorder, order.getId(), menu.getId());
 		System.out.println("it's Ok");
 	}
 }
