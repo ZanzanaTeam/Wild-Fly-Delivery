@@ -9,13 +9,13 @@ public class NoteId implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer customerId;
-	private Integer orderId;
+	private String orderId;
 
 	public NoteId() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public NoteId(Integer customerId, Integer orderId) {
+	public NoteId(Integer customerId, String orderId) {
 		this.customerId = customerId;
 		this.orderId = orderId;
 	}
@@ -34,11 +34,11 @@ public class NoteId implements Serializable {
 		this.customerId = customerId;
 	}
 
-	public Integer getOrderId() {
+	public String getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(Integer orderId) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 
