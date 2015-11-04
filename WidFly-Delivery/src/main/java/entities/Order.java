@@ -38,11 +38,11 @@ public class Order implements Serializable {
 
 	}
 
-	public Order(String id, Date orderDate, Address locationDelivery,
+	public Order(String id, Address locationDelivery,
 			OrderState orderState, DeliveryType livraisonType) {
 		super();
 		this.id = id;
-		this.orderDate = orderDate;
+		this.orderDate = new Date();
 		this.locationDelivery = locationDelivery;
 		this.orderState = orderState;
 		this.livraisonType = livraisonType;

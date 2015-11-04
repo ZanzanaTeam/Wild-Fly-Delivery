@@ -15,9 +15,9 @@ public interface OrderServiceRemote {
 
 	void changeState(OrderState orderState);
 
-	List<Order> findOrderByRestaurant(Complaint complaint);
+	List<Order> findOrderByRestaurant(String complaint);
 
-	List<Order> findOrderByCustomer(SimpleUser simpleUser);
+	List<Order> findOrderByCustomer(Integer simpleUser);
 
 	
 }

@@ -1,18 +1,18 @@
 package services.implementation;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import services.interfaces.OrderServiceRemote;
 import services.interfaces.basic.FactoryServiceLocal;
 import entities.Complaint;
-import entities.Menu;
 import entities.Order;
+import entities.Restaurant;
 import entities.SimpleUser;
 import entities.enumeration.OrderState;
 
@@ -25,8 +25,9 @@ public class OrderService implements OrderServiceRemote {
 	@EJB
 	FactoryServiceLocal serviceLocal;
 
-	private EntityManager entityManager;
-	
+	@PersistenceContext
+	EntityManager entityManager;
+
 	public OrderService() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,24 +38,34 @@ public class OrderService implements OrderServiceRemote {
 	}
 
 	@Override
-	public List<Order> findOrderByCustomer(SimpleUser simpleUser) {
-		Map<String, Object> where = new HashMap();
-		where.put("customer", simpleUser);
-		List<Order> list = serviceLocal.getOrderEjb().findBy(where, Order.class);
+	public List<Order> findOrderByCustomer(Integer simpleUser) {
 
-		return list;
+		SimpleUser user = serviceLocal.getSimpleUserEjb().findById(simpleUser,
+				SimpleUser.class);
 
+		if (user != null) {
+			String jpql = "select e from Order e where e.customer.id=:param";
+			Query query = entityManager.createQuery(jpql);
+			query.setParameter("param", simpleUser);
+			return query.getResultList();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
-	public List<Order> findOrderByRestaurant(Complaint complaint) {
-		Map<String, Object> where = new HashMap();
-		where.put("restaurant", complaint);
-		List<Order> list = serviceLocal.getOrderEjb().findBy(where, Order.class);
+	public List<Order> findOrderByRestaurant(String complaint) {
 
-		return list;
-
-
+		Restaurant restaurant = serviceLocal.getRestaurantEjb().findById(
+				complaint, Restaurant.class);
+		if (restaurant != null && restaurant instanceof Complaint) {
+			String jpql = "select e from Order e where e.restaurant.id=:param";
+			Query query = entityManager.createQuery(jpql);
+			query.setParameter("param", complaint);
+			return query.getResultList();
+		} else {
+			return null;
+		}
 	}
 
 }
