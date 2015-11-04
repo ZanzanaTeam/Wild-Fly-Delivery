@@ -13,8 +13,8 @@ import entities.enumeration.OrderState;
 
 public class TestCreateOrder {
 
-	public static String Restaurant = "4b52d9a0f964a5203f8927e3";
-	public static Integer SimpleUser = 1;
+	public static String Restaurant = "4ba60183f964a520f62d39e3";
+	public static Integer SimpleUser = 2;
 
 	public static void main(String[] args) {
 
