@@ -68,4 +68,15 @@ public class OrderService implements OrderServiceRemote {
 		}
 	}
 
+	@Override
+	public Double CalculTotalOrder(String orderId) {
+
+		String jpql = "SELECT sum(m.price*o.quantity) as total FROM ItemOrder o JOIN o.menu m where o.id.orderId=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", orderId);
+
+		return (Double) query.getSingleResult();
+
+	}
+
 }

@@ -34,10 +34,10 @@ public class ItemOrderService extends ServicesBasic implements
 	}
 
 	@Override
-	public List<ItemOrder> findItemOrderByOrder(int orderId) {
+	public List<ItemOrder> findItemOrderByOrder(String orderId) {
 
 		Order order = serviceLocal.getOrderEjb().findById(orderId, Order.class);
-		if (order != null && order instanceof Order) {
+		if (order != null) {
 			String jpql = "select e from ItemOrder e where e.order.id =:param";
 			Query query = entityManager.createQuery(jpql);
 
@@ -49,43 +49,18 @@ public class ItemOrderService extends ServicesBasic implements
 	}
 
 	@Override
-	public Boolean assignItemToOrder(ItemOrder item, int orderId) {
+	public Boolean assignItemToOrderToMenu(Double quantity, String orderid,
+			int menuId) {
 
-		Order order = serviceLocal.getOrderEjb().findById(orderId, Order.class);
-		if (order != null) {
-			item.setOrder(order);
-			serviceLocal.getItemOrderEjb().update(item);
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public Boolean assignMenuToItemOrder(ItemOrder item, int menuId) {
-
+		Order order = serviceLocal.getOrderEjb().findById(orderid, Order.class);
 		Menu menu = serviceLocal.getMenusEjb().findById(menuId, Menu.class);
-		if (menu != null && menu instanceof Menu) {
-			item.setMenu(menu);
+
+		if (order != null && menu != null) {
+			ItemOrder item = new ItemOrder(menu, order, quantity);
 			serviceLocal.getItemOrderEjb().update(item);
 			return true;
 		}
 		return false;
-	}
-
-	@Override
-	public Boolean assignItemToOrderToMenu(ItemOrder item, int orderid,
-			int menuId){
-			
-			Order order = serviceLocal.getOrderEjb().findById(orderid, Order.class);
-
-			Menu menu = serviceLocal.getMenusEjb().findById(menuId, Menu.class);
-	if (order != null && menu != null) {
-		item.setOrder(order);
-		item.setMenu(menu);  
-		serviceLocal.getItemOrderEjb().update(item);
-		return true;
-	}
-	return false;
 	}
 
 }

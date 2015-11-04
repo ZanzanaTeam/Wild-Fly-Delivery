@@ -9,13 +9,8 @@ import entities.ItemOrder;
 @Remote
 public interface ItemOrderServiceRemote {
 
-	List<ItemOrder> findItemOrderByOrder(int orderId);
+	List<ItemOrder> findItemOrderByOrder(String orderId);
 
-	Boolean assignItemToOrder(ItemOrder item, int orderId);
-
-	Boolean assignMenuToItemOrder(ItemOrder item, int menuId);
+	Boolean assignItemToOrderToMenu(Double quantity, String orderid, int menuId);
 	
-	Boolean assignItemToOrderToMenu(ItemOrder item, int orderid, int menuId);
-	
-
 }

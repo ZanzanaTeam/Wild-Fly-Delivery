@@ -19,5 +19,5 @@ public interface OrderServiceRemote {
 
 	List<Order> findOrderByCustomer(Integer simpleUser);
 
-	
+	Double CalculTotalOrder(String orderId);
 }

@@ -14,21 +14,13 @@ public class ItemOrderDelegateService {
 				jndiName);
 	}
 
-	public List<ItemOrder> findItemOrderByOrder(int orderId) {
+	public List<ItemOrder> findItemOrderByOrder(String orderId) {
 		return getProxy().findItemOrderByOrder(orderId);
 	}
 
-	public Boolean assignItemToOrder(ItemOrder item, int orderId) {
-		return getProxy().assignItemToOrder(item, orderId);
-	}
-
-	public Boolean assignMenuToItemOrder(ItemOrder item, int menuId) {
-		return getProxy().assignMenuToItemOrder(item, menuId);
-	}
-
-
-	public Boolean assignItemToOrderToMenu(ItemOrder item, int orderId, int menuId) {
-		return getProxy().assignItemToOrderToMenu(item, orderId, menuId);
+	public Boolean assignItemToOrderToMenu(Double quantity, String orderId,
+			int menuId) {
+		return getProxy().assignItemToOrderToMenu(quantity, orderId, menuId);
 	}
 
 }

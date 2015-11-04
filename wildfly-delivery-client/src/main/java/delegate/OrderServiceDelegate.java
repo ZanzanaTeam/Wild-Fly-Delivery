@@ -21,4 +21,8 @@ public class OrderServiceDelegate {
 	public List<Order> findOrderByRestaurant(String restaurant) {
 		return getProxy().findOrderByRestaurant(restaurant);
 	}
+	
+	public Double CalculTotalOrder(String orderId){
+		return getProxy().CalculTotalOrder(orderId);
+	}
 }
