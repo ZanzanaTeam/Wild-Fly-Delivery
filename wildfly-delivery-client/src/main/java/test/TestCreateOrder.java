@@ -43,7 +43,7 @@ public class TestCreateOrder {
 		ItemOrderDelegateService itemOrderDelegateService = new ItemOrderDelegateService();
 
 		itemOrderDelegateService.assignItemToOrderToMenu(2.0, id, 18);
-		itemOrderDelegateService.assignItemToOrderToMenu(1.0, id, 19);
+		itemOrderDelegateService.assignItemToOrderToMenu(2.0, id, 19);
 
 		System.out.println("Order num " + id + " : \n \t ");
 		System.out.println(itemOrderDelegateService.findItemOrderByOrder(id));

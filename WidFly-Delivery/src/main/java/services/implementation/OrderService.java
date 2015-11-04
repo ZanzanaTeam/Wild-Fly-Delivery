@@ -1,5 +1,7 @@
 package services.implementation;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -8,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import modele.ModeleOrder;
 import services.interfaces.OrderServiceRemote;
 import services.interfaces.basic.FactoryServiceLocal;
 import entities.Complaint;
@@ -54,15 +57,31 @@ public class OrderService implements OrderServiceRemote {
 	}
 
 	@Override
-	public List<Order> findOrderByRestaurant(String complaint) {
+	public List<ModeleOrder> findOrderByRestaurant(String complaint) {
 
 		Restaurant restaurant = serviceLocal.getRestaurantEjb().findById(
 				complaint, Restaurant.class);
 		if (restaurant != null && restaurant instanceof Complaint) {
 			String jpql = "select e from Order e where e.restaurant.id=:param";
+			
+			jpql = "SELECT o.id as ID , o.orderDate as CREATION_DATE, o.orderState as STATUS , c.fullName as CLIENT,sum(m.price * e.quantity) as TOTAL "
+					+ "FROM ItemOrder e "
+					+ "JOIN e.menu m "
+					+ "JOIN e.order o "
+					+ "JOIN o.customer c "
+					+ "WHERE o.restaurant.id =:param "
+					+ "GROUP BY e.order ";
+			
 			Query query = entityManager.createQuery(jpql);
 			query.setParameter("param", complaint);
-			return query.getResultList();
+			
+			List<Object[]> objects = query.getResultList();
+			List<ModeleOrder> modeleOrders = new ArrayList();
+			for (Object[] result : objects) {
+			    modeleOrders.add(new ModeleOrder((String)result[0], (Date)result[1], (OrderState) result[2], (Double)result[4], (String) result[3]));
+			}
+			
+			return modeleOrders;
 		} else {
 			return null;
 		}

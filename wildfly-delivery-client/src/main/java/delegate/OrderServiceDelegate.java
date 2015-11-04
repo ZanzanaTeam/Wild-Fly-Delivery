@@ -3,6 +3,7 @@ package delegate;
 import java.util.List;
 
 import locator.ServiceLocator;
+import modele.ModeleOrder;
 import services.interfaces.OrderServiceRemote;
 import entities.Order;
 
@@ -18,7 +19,7 @@ public class OrderServiceDelegate {
 		return getProxy().findOrderByCustomer(customer_id);
 	}
 
-	public List<Order> findOrderByRestaurant(String restaurant) {
+	public List<ModeleOrder> findOrderByRestaurant(String restaurant) {
 		return getProxy().findOrderByRestaurant(restaurant);
 	}
 	
